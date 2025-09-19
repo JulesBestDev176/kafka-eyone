@@ -13,6 +13,9 @@ import java.util.UUID;
 @Builder
 public class Patient {
     private UUID id;
-    private String firstName;
-    private String lastName;
+    private String nom;
+    private String prenom;
+    private String numero;
+    private String sexe;
+    private int age;
 }

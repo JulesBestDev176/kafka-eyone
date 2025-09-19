@@ -1,0 +1,12 @@
+[
+  {
+    "operation": "shift",
+    "spec": {
+      "prenom": "firstname",
+      "nom": "lastname",
+      "numero": "phoneNumber",
+      "sexe": "gender",
+      "age": "old"
+    }
+  }
+]

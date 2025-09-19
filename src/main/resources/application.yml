@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: kafka-eyone
+  cloud:
+    function:
+      definition: consumePatient
+    stream:
+      kafka:
+        binder:
+          brokers: http://35.159.23.192:9092
+          producer-properties:
+            key.serializer: org.apache.kafka.common.serialization.StringSerializer
+            value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+          #required-acks: 1  # Tous les replicas doivent confirmer l'écriture
+          auto-create-topics: true
+          consumer-properties:
+            auto.offset.reset: earliest
+            isolation.level: read_committed  # Garantie la consistence des messages
+            enable.auto.commit: false  # Désactive le commit automatique
+        streams:
+          binder:
+            applicationId: isi-patient-api
+            functions:
+              consumePatient:
+                applicationId: patient-consumer
+      bindings:
+        consumePatient-in-0:
+          destination: isi-patient-topic
+          contentType: application/json
+          group: isi-patient-group
+
+server:
+  port: ${SERVER_PORT:8081}
+
+# Optional custom properties to document external tools
+external:
+  kafka-ui: ${KAFKA_UI_URL:http://35.159.23.192:8071/}
+  kafka-broker: ${KAFKA_BROKER_HTTP_URL:http://35.159.23.192:9092/}
+
+# Webhook configuration
+webhook:
+  patient:
+    url: https://webhook.site/17622a41-f27e-43cc-b34a-aea241c456d1

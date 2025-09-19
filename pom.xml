@@ -59,7 +59,15 @@
 			<groupId>org.springframework.kafka</groupId>
 			<artifactId>spring-kafka</artifactId>
 		</dependency>
-
+        <dependency>
+            <groupId>com.bazaarvoice.jolt</groupId>
+            <artifactId>jolt-core</artifactId>
+            <version>0.1.7</version> </dependency>
+        <dependency>
+            <groupId>com.bazaarvoice.jolt</groupId>
+            <artifactId>json-utils</artifactId>
+            <version>0.1.7</version>
+        </dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
@@ -85,6 +93,7 @@
 			<artifactId>spring-kafka-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
         <!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
         <dependency>
             <groupId>org.mockito</groupId>
