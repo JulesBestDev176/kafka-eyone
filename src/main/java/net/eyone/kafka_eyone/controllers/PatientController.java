@@ -4,7 +4,6 @@ import lombok.RequiredArgsConstructor;
 import net.eyone.kafka_eyone.dtos.PatientRequest;
 import net.eyone.kafka_eyone.dtos.PatientResponse;
 import net.eyone.kafka_eyone.services.PatientProducerService;
-import net.eyone.kafka_eyone.services.TransformationService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,7 +23,6 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class PatientController {
     private final PatientProducerService patientProducerService;
-    private final TransformationService transformationService;
 
 
     /**
@@ -34,18 +32,14 @@ public class PatientController {
      * @return 202 ACCEPTED si le message a été pris en compte
      */
     @PostMapping
-    public ResponseEntity<PatientResponse> create(@RequestBody PatientRequest request) {
+    public ResponseEntity<Void> create(@RequestBody PatientRequest request) {
 
         if (request.getPrenom() == null || request.getNom() == null) {
             return ResponseEntity.badRequest().build();
         }
 
-        String cheminFichierSpec = "spec/patient.json";
-
-        PatientResponse resultatFinal = transformationService.transformationComplet(request, cheminFichierSpec);
-
-        patientProducerService.envoyerPatient(resultatFinal);
-
-        return new ResponseEntity<>(resultatFinal, HttpStatus.ACCEPTED);
+        patientProducerService.envoyerPatient(request);
+        
+        return ResponseEntity.accepted().build();
     }
 }

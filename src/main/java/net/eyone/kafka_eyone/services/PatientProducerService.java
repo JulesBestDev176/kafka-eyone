@@ -13,5 +13,5 @@ public interface PatientProducerService {
      * Envoie le patient sur le binding configuré (sendPatient-out-0 -> isi-patient_topic).
      * @param patient domaine Patient à publier
      */
-    void envoyerPatient(PatientResponse patientResponse);
+    void envoyerPatient(Object patientRequest);
 }

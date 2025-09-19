@@ -19,16 +19,16 @@ public class PatientProducerServiceImpl implements PatientProducerService {
 
     /**
      * Cette methode permet d'envoyer les infos du patient via StreamBridge
-     * @param patientResponse
+     * @param patientRequest
      */
     @Override
-    public void envoyerPatient(PatientResponse patientResponse) {
-        log.info(String.format("Tentative d'envoi du patient via StreamBridge -> %s", patientResponse));
+    public void envoyerPatient(Object patientRequest) {
+        log.info(String.format("Tentative d'envoi du patient via StreamBridge -> %s", patientRequest));
 
         // On envoie le message sur le "canal" de sortie.
         // Spring Cloud Stream s'occupe de le router vers le bon topic Kafka
         // et de le sérialiser en JSON, comme défini dans la configuration.
-        boolean isSent = streamBridge.send(OUTPUT_BINDING_NAME, patientResponse);
+        boolean isSent = streamBridge.send(OUTPUT_BINDING_NAME, patientRequest);
 
         if (isSent) {
             log.info("Message envoyé avec succès au canal : " + OUTPUT_BINDING_NAME);
