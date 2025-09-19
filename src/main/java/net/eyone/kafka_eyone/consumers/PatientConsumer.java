@@ -23,7 +23,8 @@ public class PatientConsumer {
     @Bean
     public Consumer<String> consumePatient() {
         return message -> {
-            log.info("[PatientConsumer] [consumePatient] Message : {}", message);
+            log.info("[PatientConsumer ] [consumePatient] message : {}", message);
+            webhookService.sendToWebhook(message);
         };
     }
 }

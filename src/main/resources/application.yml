@@ -28,6 +28,9 @@ spring:
           destination: isi-patient-topic
           contentType: application/json
           group: isi-patient-group
+        sendPatient-out-0:
+          destination: isi-patient-topic
+          contentType: application/json
 
 server:
   port: ${SERVER_PORT:8081}
