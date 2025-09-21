@@ -7,7 +7,7 @@ spring:
     stream:
       kafka:
         binder:
-          brokers: http://35.159.23.192:9092
+          brokers: 35.159.23.192:9092
           producer-properties:
             key.serializer: org.apache.kafka.common.serialization.StringSerializer
             value.serializer: org.springframework.kafka.support.serializer.JsonSerializer
@@ -46,6 +46,6 @@ app:
     patient-topic: isi-patient-topic
     output-binding: sendPatient-out-0
   webhook:
-    url: https://webhook.site/b55a12f9-d66b-4f2f-a399-8acfdf28ef31
+    url: https://webhook.site/7d939424-48c5-49d0-9142-13879815346c
     timeout: 5000
     retry-attempts: 3
