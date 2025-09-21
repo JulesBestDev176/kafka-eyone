@@ -10,37 +10,42 @@ spring:
           brokers: http://35.159.23.192:9092
           producer-properties:
             key.serializer: org.apache.kafka.common.serialization.StringSerializer
-            value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
-          #required-acks: 1  # Tous les replicas doivent confirmer l'écriture
-          auto-create-topics: true
+            value.serializer: org.springframework.kafka.support.serializer.JsonSerializer
+            spring.json.add.type.headers: false
+            spring.json.trusted.packages: "*"
           consumer-properties:
+            key.deserializer: org.apache.kafka.common.serialization.StringDeserializer
+            value.deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+            spring.json.trusted.packages: "*"
+            spring.json.value.default.type: net.eyone.kafka_eyone.models.Patient
             auto.offset.reset: earliest
-            isolation.level: read_committed  # Garantie la consistence des messages
-            enable.auto.commit: false  # Désactive le commit automatique
+            isolation.level: read_committed
+            enable.auto.commit: false
         streams:
           binder:
-            applicationId: isi-patient-api
-            functions:
-              consumePatient:
-                applicationId: patient-consumer
+            configuration:
+              default.key.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+              default.value.serde: org.springframework.kafka.support.serializer.JsonSerde
+              spring.json.use.type.headers: false
       bindings:
         consumePatient-in-0:
           destination: isi-patient-topic
           contentType: application/json
           group: isi-patient-group
+          consumer:
+            use-native-decoding: true
         sendPatient-out-0:
           destination: isi-patient-topic
           contentType: application/json
-
+          producer:
+            use-native-encoding: true
 server:
-  port: ${SERVER_PORT:8081}
-
-# Optional custom properties to document external tools
-external:
-  kafka-ui: ${KAFKA_UI_URL:http://35.159.23.192:8071/}
-  kafka-broker: ${KAFKA_BROKER_HTTP_URL:http://35.159.23.192:9092/}
-
-# Webhook configuration
-webhook:
-  patient:
-    url: https://webhook.site/17622a41-f27e-43cc-b34a-aea241c456d1
+  port: 8081
+app:
+  kafka:
+    patient-topic: isi-patient-topic
+    output-binding: sendPatient-out-0
+  webhook:
+    url: https://webhook.site/b55a12f9-d66b-4f2f-a399-8acfdf28ef31
+    timeout: 5000
+    retry-attempts: 3

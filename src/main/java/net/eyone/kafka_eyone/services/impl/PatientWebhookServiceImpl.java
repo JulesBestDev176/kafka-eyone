@@ -1,38 +1,44 @@
 package net.eyone.kafka_eyone.services.impl;
-
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import net.eyone.kafka_eyone.config.AppProperties;
+import net.eyone.kafka_eyone.dtos.PatientResponse;
 import net.eyone.kafka_eyone.services.PatientWebhookService;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
+import reactor.util.retry.Retry;
+import java.time.Duration;
 
-/**
- * Implémentation par défaut qui publie la charge utile Patient vers une URL de webhook via WebClient.
- */
 @Service
 @RequiredArgsConstructor
 @Slf4j
 public class PatientWebhookServiceImpl implements PatientWebhookService {
 
-    private final WebClient webClient = WebClient.builder().build();
-
-    @Value("${webhook.patient.url:https://webhook.site/17622a41-f27e-43cc-b34a-aea241c456d1}")
-    private String patientWebhookUrl;
-
+    private final WebClient webClient;
+    private final AppProperties appProperties;
     @Override
-    public void sendToWebhook(String message) {
-
-        log.info("Envoi du patient vers le webhook {}", patientWebhookUrl);
+    public void send(PatientResponse patient) {
         webClient.post()
-                .uri(patientWebhookUrl)
+                .uri(appProperties.getWebhook().getUrl())
                 .contentType(MediaType.APPLICATION_JSON)
-                .bodyValue(message)
+                .bodyValue(patient)
                 .retrieve()
                 .toBodilessEntity()
-                .doOnSuccess(res -> log.info("Webhook accepté: {}", res.getStatusCode()))
-                .doOnError(err -> log.error("Erreur lors de l'appel au webhook", err))
+                .timeout(Duration.ofMillis(appProperties.getWebhook().getTimeout()))
+                .retryWhen(
+                    Retry.backoff(appProperties.getWebhook().getRetryAttempts(), Duration.ofSeconds(1))
+                        .maxBackoff(Duration.ofSeconds(5))
+                        .doBeforeRetry(signal -> 
+                            log.warn("[PatientWebhookServiceImpl][send] tentative de renvoi {} après erreur",
+                                signal.totalRetries() + 1))
+                )
+                .doOnSuccess(response -> 
+                    log.info("[PatientWebhookServiceImpl][send] patient envoyé avec succès au webhook"))
+                .doOnError(error -> 
+                    log.error("[PatientWebhookServiceImpl][send] echec de l'envoi au webhook après {} tentatives: {}",
+                        appProperties.getWebhook().getRetryAttempts(), 
+                        error.getMessage()))
                 .subscribe();
     }
 }

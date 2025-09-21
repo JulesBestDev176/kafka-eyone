@@ -1,23 +1,10 @@
-version: '3.8'
 services:
-  zookeeper:
-    image: bitnami/zookeeper:3.9
-    container_name: zookeeper
-    environment:
-      - ALLOW_ANONYMOUS_LOGIN=yes
+  kafka-ui:
+    image: 'provectuslabs/kafka-ui'
+    container_name: kafka-ui
     ports:
-      - "2181:2181"
-
-  kafka:
-    image: bitnami/kafka:3.7
-    container_name: kafka
+      - '8084:8080'
     environment:
-      - KAFKA_BROKER_ID=1
-      - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
-      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://localhost:9092
-      - KAFKA_LISTENERS=PLAINTEXT://:9092
-      - ALLOW_PLAINTEXT_LISTENER=yes
-    ports:
-      - "9092:9092"
-    depends_on:
-      - zookeeper
+      KAFKA_CLUSTERS_0_NAME: local
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:9092
+      KAFKA_CLUSTERS_0_ZOOKEEPER: zookeeper:2181

@@ -1,12 +1,38 @@
 [
   {
+    "operation": "default",
+    "spec": {
+      "id": null,
+      "prenom": "",
+      "nom": "",
+      "numero": "",
+      "sexe": "N/A",
+      "age": 0
+    }
+  },
+  {
     "operation": "shift",
     "spec": {
+      "id": "id",
       "prenom": "firstname",
       "nom": "lastname",
       "numero": "phoneNumber",
       "sexe": "gender",
-      "age": "old"
+      "age": "age"
+    }
+  },
+  {
+    "operation": "modify-overwrite-beta",
+    "spec": {
+      "lastname": "=toUpperCase",
+      "firstname": "=concat(substring(,[0,1]|toUpperCase),substring(,[1,]|toLowerCase))",
+      "gender": "=toLowerCase"
+    }
+  },
+  {
+    "operation": "remove",
+    "spec": {
+      "old": ""
     }
   }
 ]
