@@ -49,3 +49,7 @@ app:
     url: https://webhook.site/7d939424-48c5-49d0-9142-13879815346c
     timeout: 5000
     retry-attempts: 3
+  elasticsearch:
+    host: localhost
+    port: 9200
+    index: patients

@@ -6,6 +6,7 @@ import net.eyone.kafka_eyone.models.Patient;
 import net.eyone.kafka_eyone.dtos.PatientResponse;
 import net.eyone.kafka_eyone.services.PatientTransformationService;
 import net.eyone.kafka_eyone.services.PatientWebhookService;
+import net.eyone.kafka_eyone.services.ElasticsearchService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -18,14 +19,21 @@ public class PatientConsumer {
 
     private final PatientWebhookService webhookService;
     private final PatientTransformationService transformationService;
+    private final ElasticsearchService elasticsearchService;
 
     @Bean
     public Consumer<Patient> consumePatient() {
         return patient -> {
             log.info("[PatientConsumer][consumePatient] réception d'un nouveau patient: {}", patient);
             PatientResponse transformedPatient = transformationService.transform(patient);
-            webhookService.send(transformedPatient);
-            log.info("[PatientConsumer][consumePatient] patient transformé et envoyé avec succès: {}", transformedPatient);
+            
+            // Envoi webhook
+            //webhookService.send(transformedPatient);
+            
+            // Stockage dans Elasticsearch
+            elasticsearchService.indexPatient(transformedPatient);
+            
+            log.info("[PatientConsumer][consumePatient] patient transformé, envoyé et indexé avec succès: {}", transformedPatient);
         };
     }
 }
