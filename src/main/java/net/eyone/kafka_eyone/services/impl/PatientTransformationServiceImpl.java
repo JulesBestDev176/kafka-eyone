@@ -25,7 +25,7 @@ public class PatientTransformationServiceImpl implements PatientTransformationSe
         try {
 
             Map<String, Object> inputJson = objectMapperService.objectToJson(input);
-            System.out.println("1. Objet converti en json: " + inputJson + "Class: " + inputJson.getClass());
+            log.info("[PatientTransformationService] [transformationComplet] Resultat: {}", inputJson);
 
             ClassPathResource resource = new ClassPathResource("spec/patient.json");
             InputStream fichierSpec = resource.getInputStream();
@@ -35,11 +35,10 @@ public class PatientTransformationServiceImpl implements PatientTransformationSe
             if (resultatJolt == null) {
                 throw new RuntimeException("La transformation Jolt a retourné null. Vérifiez la spécification Jolt.");
             }
-            System.out.println("2. Resultat de la transformation Jolt : " + resultatJolt + "Class: " + resultatJolt.getClass());
+            log.info("[PatientTransformationService] [transformationComplet] Resultat Jolt: {}", resultatJolt);
 
             PatientResponse resultat = objectMapperService.jsonToObjectPatient(resultatJolt);
-            System.out.println("3. JSON transforme reconverti en objet final : " + resultat + "Class: " + resultat.getClass());
-            System.out.println("Firstname " + resultat.getFirstname());
+            log.info("[PatientTransformationService] [transformationComplet] Resultat: {}", resultat);
             return resultat;
 
         }catch (Exception e) {

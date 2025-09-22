@@ -21,9 +21,9 @@ public class ObjectMapperServiceImpl implements ObjectMapperService {
     }
     @Override
     public PatientResponse jsonToObjectPatient(Object resultatJolt) {
-        log.info("Mapping JOLT result to PatientResponse: {}", resultatJolt);
+        log.info("[ObjectMapperService] [jsonToObjectPatient] Resultat: {}", resultatJolt);
         PatientResponse response = objectMapper.convertValue(resultatJolt, PatientResponse.class);
-        log.info("Mapped PatientResponse: {}", response);
+        log.info("[ObjectMapperService] [jsonToObjectPatient] PatientResponse: {}", response);
         return response;
     }
 

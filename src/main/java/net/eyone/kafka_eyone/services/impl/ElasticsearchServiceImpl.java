@@ -2,9 +2,9 @@ package net.eyone.kafka_eyone.services.impl;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import net.eyone.kafka_eyone.config.ElasticsearchConfig;
 import net.eyone.kafka_eyone.dtos.PatientResponse;
 import net.eyone.kafka_eyone.services.ElasticsearchService;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.elasticsearch.core.ElasticsearchOperations;
 import org.springframework.data.elasticsearch.core.IndexOperations;
 import org.springframework.data.elasticsearch.core.document.Document;
@@ -21,19 +21,17 @@ import java.util.Map;
 public class ElasticsearchServiceImpl implements ElasticsearchService {
 
     private final ElasticsearchOperations elasticsearchOperations;
-    
-    @Value("${app.elasticsearch.index}")
-    private String indexName;
+    private final ElasticsearchConfig elasticsearchConfig;
 
     public void indexPatient(PatientResponse patient) {
         try {
-            IndexCoordinates indexCoordinates = IndexCoordinates.of(indexName);
+            IndexCoordinates indexCoordinates = IndexCoordinates.of(elasticsearchConfig.getIndex());
             
             // Créer l'index s'il n'existe pas
             IndexOperations indexOps = elasticsearchOperations.indexOps(indexCoordinates);
             if (!indexOps.exists()) {
                 indexOps.create();
-                log.info("Index '{}' créé", indexName);
+                log.info("[ElasticsearchService] [indexPatient] Index : {}", elasticsearchConfig.getIndex());
             }
 
             // Préparer le document avec timestamp
@@ -45,10 +43,10 @@ public class ElasticsearchServiceImpl implements ElasticsearchService {
             // Indexer le document
             String documentId = String.valueOf(elasticsearchOperations.save(Document.from(document), indexCoordinates));
             
-            log.info("Patient indexé dans Elasticsearch avec l'ID: {}", documentId);
+            log.info("[ElasticsearchService] [indexPatient] Patient indexé avec ID: {}", documentId);
             
         } catch (Exception e) {
-            log.error("Erreur lors de l'indexation du patient dans Elasticsearch", e);
+            log.error("[ElasticsearchService] [indexPatient] Erreur lors de l'indexation du patient dans Elasticsearch", e);
             throw new RuntimeException("Échec de l'indexation Elasticsearch", e);
         }
     }

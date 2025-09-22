@@ -13,8 +13,8 @@ public class AppProperties {
 
     @Data
     public static class Kafka {
-    private String patientTopic;
-    private String outputBinding;
+        private String patientTopic;
+        private String outputBinding;
     }
 
     @Data

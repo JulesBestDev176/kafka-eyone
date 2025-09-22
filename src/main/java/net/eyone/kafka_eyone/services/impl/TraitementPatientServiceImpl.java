@@ -29,7 +29,7 @@ public class TraitementPatientServiceImpl implements TraitementPatientService {
         PatientResponse patientTransforme = transformationService.transformationComplet(patientRequest);
         
         // Envoi webhook
-        //webhookService.send(patientTransforme);
+        webhookService.send(patientTransforme);
         
         // Stockage dans Elasticsearch
         elasticsearchService.indexPatient(patientTransforme);
