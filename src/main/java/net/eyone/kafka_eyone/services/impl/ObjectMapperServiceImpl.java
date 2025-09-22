@@ -26,4 +26,13 @@ public class ObjectMapperServiceImpl implements ObjectMapperService {
         log.info("Mapped PatientResponse: {}", response);
         return response;
     }
+
+    @Override
+    public Object parseJson(String json) {
+        try {
+            return objectMapper.readValue(json, Object.class);
+        } catch (Exception e) {
+            throw new RuntimeException("Erreur parsing JSON", e);
+        }
+    }
 }

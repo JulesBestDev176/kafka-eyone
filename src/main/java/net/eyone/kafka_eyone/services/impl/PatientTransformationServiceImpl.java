@@ -1,14 +1,11 @@
 package net.eyone.kafka_eyone.services.impl;
 import com.bazaarvoice.jolt.Chainr;
 import com.bazaarvoice.jolt.JsonUtils;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.eyone.kafka_eyone.dtos.PatientResponse;
-import net.eyone.kafka_eyone.models.Patient;
 import net.eyone.kafka_eyone.services.ObjectMapperService;
 import net.eyone.kafka_eyone.services.PatientTransformationService;
-import net.eyone.kafka_eyone.services.TransformationService;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +18,6 @@ import java.util.Map;
 @Slf4j
 public class PatientTransformationServiceImpl implements PatientTransformationService {
 
-    private final TransformationService transformationService;
     private final ObjectMapperService objectMapperService;
 
     @Override

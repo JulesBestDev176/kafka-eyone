@@ -6,5 +6,6 @@ import java.util.Map;
 
 public interface ObjectMapperService {
     Map<String, Object> objectToJson(Object input);
-    PatientResponse jsonToObjectPatient(Object resultatJolt) ;
+    PatientResponse jsonToObjectPatient(Object resultatJolt);
+    Object parseJson(String json);
 }
