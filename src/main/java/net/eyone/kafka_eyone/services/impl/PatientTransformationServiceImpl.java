@@ -8,6 +8,8 @@ import net.eyone.kafka_eyone.services.PatientTransformationService;
 import net.eyone.kafka_eyone.services.TransformationService;
 import org.springframework.stereotype.Service;
 
+import java.util.Map;
+
 @Service
 @RequiredArgsConstructor
 @Slf4j
@@ -17,17 +19,30 @@ public class PatientTransformationServiceImpl implements PatientTransformationSe
     private final ObjectMapper objectMapper;
 
     @Override
-    public PatientResponse transform(Patient patient) {
+    public PatientResponse transformationComplet(Object input, String cheminSpec) {
         try {
-            log.info("[PatientTransformationServiceImpl] [transform] Début de la transformation du patient: {}", patient);
-            Object transformedData = transformationService.transform(patient, "spec/patient.json");
-            log.info("[PatientTransformationServiceImpl] [transform] Données transformées: {}", transformedData);
-            PatientResponse response = objectMapper.convertValue(transformedData, PatientResponse.class);
-            log.info("[PatientTransformationServiceImpl] [transform] Patient response créée: {}", response);
-            return response;
-        } catch (Exception e) {
-            log.error("[PatientTransformationServiceImpl] [transform] erreur lors de la transformation du patient: {}", e.getMessage());
-            throw new RuntimeException("Erreur lors de la transformation du patient", e);
+
+            Map<String, Object> inputJson = objectMapper.objectToJson(input);
+            System.out.println("1. Objet converti en json: " + inputJson + "Class: " + inputJson.getClass());
+
+            ClassPathResource resource = new ClassPathResource(cheminSpec);
+            InputStream fichierSpec = resource.getInputStream();
+            List<Object> spec = JsonUtils.jsonToList(fichierSpec);
+            Chainr chainr = Chainr.fromSpec(spec);
+            Object resultatJolt = chainr.transform(inputJson);
+            if (resultatJolt == null) {
+                throw new RuntimeException("La transformation Jolt a retourné null. Vérifiez la spécification Jolt.");
+            }
+            System.out.println("2. Resultat de la transformation Jolt : " + resultatJolt + "Class: " + resultatJolt.getClass());
+
+            PatientResponse resultat = objectMapperService.jsonToObjectPatient(resultatJolt);
+            System.out.println("3. JSON transforme reconverti en objet final : " + resultat + "Class: " + resultat.getClass());
+            System.out.println("Firstname " + resultat.getFirstname());
+            return resultat;
+
+        }catch (Exception e) {
+            throw new RuntimeException("Le cycle de transformation a echoue", e);
         }
+    }
     }
 }
