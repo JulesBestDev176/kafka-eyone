@@ -15,9 +15,7 @@ spring:
             spring.json.trusted.packages: "*"
           consumer-properties:
             key.deserializer: org.apache.kafka.common.serialization.StringDeserializer
-            value.deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
-            spring.json.trusted.packages: "*"
-            spring.json.value.default.type: net.eyone.kafka_eyone.models.Patient
+            value.deserializer: org.apache.kafka.common.serialization.StringDeserializer
             auto.offset.reset: earliest
             isolation.level: read_committed
             enable.auto.commit: false
@@ -33,7 +31,7 @@ spring:
           contentType: application/json
           group: isi-patient-group
           consumer:
-            use-native-decoding: true
+            use-native-decoding: false
         sendPatient-out-0:
           destination: isi-patient-topic
           contentType: application/json
