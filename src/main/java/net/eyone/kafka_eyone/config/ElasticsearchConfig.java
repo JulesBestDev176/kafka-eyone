@@ -1,23 +1,28 @@
 package net.eyone.kafka_eyone.config;
 
-import org.springframework.beans.factory.annotation.Value;
+import lombok.Data;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.elasticsearch.client.ClientConfiguration;
 import org.springframework.data.elasticsearch.client.elc.ElasticsearchConfiguration;
 
+@Data
 @Configuration
+@ConfigurationProperties(prefix = "app")
 public class ElasticsearchConfig extends ElasticsearchConfiguration {
 
-    @Value("${app.elasticsearch.host}")
-    private String host;
+    private Elasticsearch elasticsearch = new Elasticsearch();
 
-    @Value("${app.elasticsearch.port}")
-    private int port;
+    @Data
+    public static class Elasticsearch {
+        private String host;
+        private int port;
+    }
 
     @Override
     public ClientConfiguration clientConfiguration() {
         return ClientConfiguration.builder()
-                .connectedTo(host + ":" + port)
+                .connectedTo(elasticsearch.getHost() + ":" + elasticsearch.getPort())
                 .build();
     }
 }

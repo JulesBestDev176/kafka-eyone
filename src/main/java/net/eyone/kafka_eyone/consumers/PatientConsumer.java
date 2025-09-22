@@ -24,7 +24,7 @@ public class PatientConsumer {
     @Bean
     public Consumer<Patient> consumePatient() {
         return patient -> {
-            log.info("[PatientConsumer][consumePatient] réception d'un nouveau patient: {}", patient);
+            log.info("[PatientConsumer][consumePatient] patient: {}", patient);
             PatientResponse transformedPatient = transformationService.transform(patient);
             
             // Envoi webhook
@@ -33,7 +33,7 @@ public class PatientConsumer {
             // Stockage dans Elasticsearch
             elasticsearchService.indexPatient(transformedPatient);
             
-            log.info("[PatientConsumer][consumePatient] patient transformé, envoyé et indexé avec succès: {}", transformedPatient);
+            log.info("[PatientConsumer][consumePatient] patient transformé: {}", transformedPatient);
         };
     }
 }
