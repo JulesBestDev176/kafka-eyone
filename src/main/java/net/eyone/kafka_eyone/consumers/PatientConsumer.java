@@ -22,10 +22,10 @@ public class PatientConsumer {
     private final ElasticsearchService elasticsearchService;
 
     @Bean
-    public Consumer<Patient> consumePatient() {
-        return patient -> {
-            log.info("[PatientConsumer][consumePatient] patient: {}", patient);
-            PatientResponse transformedPatient = transformationService.transform(patient);
+    public Consumer<String> consumePatient() {
+        return message -> {
+            log.info("[PatientConsumer][consumePatient] patient: {}", message);
+            PatientResponse transformedPatient = transformationService.transformationComplet(message);
             
             // Envoi webhook
             //webhookService.send(transformedPatient);
