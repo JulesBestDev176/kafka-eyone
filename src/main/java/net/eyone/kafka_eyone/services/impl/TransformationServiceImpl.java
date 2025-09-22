@@ -5,33 +5,44 @@ import com.bazaarvoice.jolt.JsonUtils;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import net.eyone.kafka_eyone.dtos.PatientResponse;
+import net.eyone.kafka_eyone.services.ObjectMapperService;
 import net.eyone.kafka_eyone.services.TransformationService;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 
 import java.io.InputStream;
 import java.util.List;
+import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
 @Slf4j
 public class TransformationServiceImpl implements TransformationService {
     private final ObjectMapper objectMapper;
+    private final ObjectMapperService objectMapperService;
 
     @Override
-    public Object transform(Object input, String specPath) throws Exception {
+    public Object transformComplet(Object input) {
+
         try {
-            InputStream specFile = new ClassPathResource(specPath).getInputStream();
-            List<Object> spec = JsonUtils.jsonToList(specFile);
+            Map<String, Object> inputJson = objectMapperService.objectToJson(input);
+            System.out.println("1. Objet converti en json: " + inputJson + "Class: " + inputJson.getClass());
 
+            ClassPathResource resource = new ClassPathResource("spec/patient.json");
+            InputStream fichierSpec = resource.getInputStream();
+            List<Object> spec = JsonUtils.jsonToList(fichierSpec);
             Chainr chainr = Chainr.fromSpec(spec);
+            Object resultatJolt = chainr.transform(inputJson);
+            System.out.println("2. Resultat de la transformation Jolt : " + resultatJolt + "Class: " + resultatJolt.getClass());
 
-            Object inputJson = objectMapper.convertValue(input, Object.class);
+            PatientResponse resultat = objectMapperService.jsonToObjectPatient(resultatJolt);
+            System.out.println("3. JSON transforme reconverti en objet final : " + resultat + "Class: " + resultat.getClass());
+            System.out.println("Firstname " + resultat.getFirstname());
+            return resultat;
 
-            return chainr.transform(inputJson);
-        } catch (Exception e) {
-            log.error("[TransformationServiceImpl] [transform] Erreur lors de la transformation JOLT: {}", e.getMessage());
-            throw e;
+        }catch (Exception e) {
+            throw new RuntimeException("Le cycle de transformation a echoue", e);
         }
     }
 }

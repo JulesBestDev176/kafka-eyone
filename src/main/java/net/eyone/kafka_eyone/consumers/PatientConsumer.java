@@ -1,5 +1,6 @@
 package net.eyone.kafka_eyone.consumers;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.eyone.kafka_eyone.models.Patient;
@@ -20,20 +21,24 @@ public class PatientConsumer {
     private final PatientWebhookService webhookService;
     private final PatientTransformationService transformationService;
     private final ElasticsearchService elasticsearchService;
+    private final ObjectMapper objectMapper;
 
     @Bean
     public Consumer<String> consumePatient() {
         return message -> {
             log.info("[PatientConsumer][consumePatient] patient: {}", message);
-            PatientResponse transformedPatient = transformationService.transformationComplet(message);
+            Object patientRequest = objectMapper.readValue(message, Object.class);
+
+            // Transformation JOLT
+            PatientResponse patientTransforme = transformationService.transformationComplet(patientRequest);
             
             // Envoi webhook
-            //webhookService.send(transformedPatient);
+            //webhookService.send(patientTransforme);
             
             // Stockage dans Elasticsearch
-            elasticsearchService.indexPatient(transformedPatient);
+            elasticsearchService.indexPatient(patientTransforme);
             
-            log.info("[PatientConsumer][consumePatient] patient transformé: {}", transformedPatient);
+            log.info("[PatientConsumer][consumePatient] patient transformé: {}", patientTransforme);
         };
     }
 }
