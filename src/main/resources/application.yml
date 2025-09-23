@@ -43,7 +43,7 @@ elasticsearch:
 
 server:
   port: 8081
-app:
+application:
   kafka:
     patient-topic: isi-patient-topic
 #    output-binding: sendPatient-out-0
