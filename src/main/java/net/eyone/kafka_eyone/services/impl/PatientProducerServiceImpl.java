@@ -24,7 +24,7 @@ public class PatientProducerServiceImpl implements PatientProducerService {
     @Override
     public void publish(Patient patient) {
         log.info("[PatientProducerServiceImpl] [publish] publication du patient dans le topic Kafka: {}", appProperties.getKafka().getPatientTopic());
-        boolean isSent = streamBridge.send(appProperties.getKafka().getOutputBinding(), patient);
+        boolean isSent = streamBridge.send(appProperties.getKafka().getPatientTopic(), patient);
         log.info("[PatientProducerServiceImpl] [publish] patient publié: {}", patient);
 
         if (isSent) {

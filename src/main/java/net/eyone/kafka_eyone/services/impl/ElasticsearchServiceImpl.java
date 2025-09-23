@@ -2,49 +2,29 @@ package net.eyone.kafka_eyone.services.impl;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import net.eyone.kafka_eyone.config.ElasticsearchConfig;
 import net.eyone.kafka_eyone.dtos.PatientResponse;
+import net.eyone.kafka_eyone.mappers.PatientMapper;
+import net.eyone.kafka_eyone.models.PatientDocument;
+import net.eyone.kafka_eyone.repositories.PatientDocumentRepository;
 import net.eyone.kafka_eyone.services.ElasticsearchService;
-import org.springframework.data.elasticsearch.core.ElasticsearchOperations;
-import org.springframework.data.elasticsearch.core.IndexOperations;
-import org.springframework.data.elasticsearch.core.document.Document;
-import org.springframework.data.elasticsearch.core.mapping.IndexCoordinates;
 import org.springframework.stereotype.Service;
 
-import java.time.Instant;
-import java.util.HashMap;
-import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
 @Slf4j
 public class ElasticsearchServiceImpl implements ElasticsearchService {
 
-    private final ElasticsearchOperations elasticsearchOperations;
-    private final ElasticsearchConfig elasticsearchConfig;
+    private final PatientDocumentRepository patientDocumentRepository;
+    private final PatientMapper patientMapper;
 
-    public void indexPatient(PatientResponse patient) {
+    public void indexPatient(PatientResponse patientResponse) {
         try {
-            IndexCoordinates indexCoordinates = IndexCoordinates.of(elasticsearchConfig.getIndex());
-            
-            // Créer l'index s'il n'existe pas
-            IndexOperations indexOps = elasticsearchOperations.indexOps(indexCoordinates);
-            if (!indexOps.exists()) {
-                indexOps.create();
-                log.info("[ElasticsearchService] [indexPatient] Index : {}", elasticsearchConfig.getIndex());
-            }
+            PatientDocument patientDocument = patientMapper.toDocument(patientResponse);
 
-            // Préparer le document avec timestamp
-            Map<String, Object> document = new HashMap<>();
-            document.put("patient", patient);
-            document.put("timestamp", Instant.now().toString());
-            document.put("source", "kafka-consumer");
+            PatientDocument saved = patientDocumentRepository.save(patientDocument);
+            log.info("[ElasticsearchService] [indexPatient] Patient indexé avec ID: {}", saved.getId());
 
-            // Indexer le document
-            String documentId = String.valueOf(elasticsearchOperations.save(Document.from(document), indexCoordinates));
-            
-            log.info("[ElasticsearchService] [indexPatient] Patient indexé avec ID: {}", documentId);
-            
         } catch (Exception e) {
             log.error("[ElasticsearchService] [indexPatient] Erreur lors de l'indexation du patient dans Elasticsearch", e);
             throw new RuntimeException("Échec de l'indexation Elasticsearch", e);

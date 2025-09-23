@@ -1,6 +1,10 @@
 spring:
   application:
     name: kafka-eyone
+  elasticsearch:
+    uris: localhost:9200
+    username: elastic
+    password: okok
   cloud:
     function:
       definition: consumePatient
@@ -32,22 +36,19 @@ spring:
           group: isi-patient-group
           consumer:
             use-native-decoding: false
-        sendPatient-out-0:
-          destination: isi-patient-topic
-          contentType: application/json
-          producer:
-            use-native-encoding: true
+elasticsearch:
+  index:
+    transactions:
+      name: patients
+
 server:
   port: 8081
 app:
   kafka:
     patient-topic: isi-patient-topic
-    output-binding: sendPatient-out-0
+#    output-binding: sendPatient-out-0
   webhook:
-    url: https://webhook.site/7d939424-48c5-49d0-9142-13879815346c
+    url: https://webhook.site/27d01a50-8272-48dc-bbdc-ec1b641a7cf8
     timeout: 5000
     retry-attempts: 3
-  elasticsearch:
-    host: localhost
-    port: 9200
-    index: patients
+
