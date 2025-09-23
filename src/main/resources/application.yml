@@ -46,7 +46,6 @@ server:
 application:
   kafka:
     patient-topic: isi-patient-topic
-#    output-binding: sendPatient-out-0
   webhook:
     url: https://webhook.site/27d01a50-8272-48dc-bbdc-ec1b641a7cf8
     timeout: 5000
