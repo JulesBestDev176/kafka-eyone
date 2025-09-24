@@ -22,7 +22,12 @@ public class TransformationUtil {
             return objectMapper.convertValue(input, Map.class);
         }
 
-
+        public static <T> T jsonToObject(Object json, Class<T> targetClass) {
+            log.debug("[ObjectMapperTransformation] [jsonToObject] json : {}, targetClass : {}", json, targetClass.getSimpleName());
+            T result = objectMapper.convertValue(json, targetClass);
+            log.debug("[ObjectMapperTransformation] [jsonToObject] result : {}", result);
+            return result;
+        }
 
         public static Object parseJson(String message) {
             try {
@@ -50,31 +55,59 @@ public class TransformationUtil {
         }
     }
 
+    public static class Base64Decoder {
+        
+        public static Object decodeBase64Data(Object data) {
+            if (!(data instanceof String)) {
+                log.debug("[Base64Decoder] Données ne sont pas de type String, pas de décodage nécessaire");
+                return data;
+            }
+            
+            String originalString = (String) data;
+            log.debug("[Base64Decoder] Données String d'origine (longueur: {}): {}", originalString.length(), originalString);
+            
+            try {
+                String base64String = originalString.replaceAll("\"", ""); // Supprimer les guillemets
+                log.debug("[Base64Decoder] String après suppression guillemets: {}", base64String);
+                
+                long decodeStartTime = System.currentTimeMillis();
+                byte[] decodedBytes = Base64.getDecoder().decode(base64String);
+                String decodedJson = new String(decodedBytes);
+                long decodeTime = System.currentTimeMillis() - decodeStartTime;
+                
+                log.debug("[Base64Decoder] JSON décodé en {} ms: {}", decodeTime, decodedJson);
+                
+                Object decodedData = ObjectMapperTransformation.parseJson(decodedJson);
+                log.info("[Base64Decoder] Données décodées Base64 avec succès: {}", decodedData);
+                return decodedData;
+            } catch (Exception e) {
+                log.warn("[Base64Decoder] Échec décodage Base64 ({}), utilisation données originales", e.getMessage());
+                log.debug("[Base64Decoder] Détails erreur décodage:", e);
+                return data;
+            }
+        }
+    }
+
     public static class TransformationJolt {
 
-        public static <T> T transformationComplet(Object input, String spec, Class<T> targetClass) {
+        public static <T> T transformationComplet(Object object, String spec, Class<T> targetClass) {
             try {
+                log.info("[TransformationUtil] [transformationComplet] Resultat: {}", object);
 
-                Map<String, Object> inputJson;
-                if (input instanceof String) {
-                    inputJson = (Map<String, Object>) ObjectMapperTransformation.parseJson((String) input);
-                } else {
-                    inputJson = (Map<String, Object>) input;
-                }
-                log.info("[PatientTransformationService] [transformationComplet] Resultat: {}", inputJson);
+                var input = TransformationUtil.ObjectMapperTransformation.objectToJson(object);
 
                 ClassPathResource resource = new ClassPathResource(spec);
                 InputStream fichierSpec = resource.getInputStream();
                 List<Object> specList = JsonUtils.jsonToList(fichierSpec);
                 Chainr chainr = Chainr.fromSpec(specList);
-                Object resultatJolt = chainr.transform(inputJson);
+                Object resultatJolt = chainr.transform(input);
                 if (resultatJolt == null) {
                     throw new RuntimeException("La transformation Jolt a retourné null. Vérifiez la spécification Jolt.");
                 }
-                log.info("[PatientTransformationService] [transformationComplet] Resultat Jolt: {}", resultatJolt);
+                log.info("[TransformationUtil] [transformationComplet] Resultat Jolt: {}", resultatJolt);
 
                 T resultat = objectMapper.convertValue(resultatJolt, targetClass);
-                log.info("[PatientTransformationService] [transformationComplet] Resultat: {}", resultat);
+                log.info("[TransformationUtil] [transformationComplet] Resultat: {}", resultat);
                 return resultat;
 
             } catch (Exception e) {

@@ -11,7 +11,7 @@ spring:
     password: okok
   cloud:
     function:
-      definition: consumePatient
+      definition: consumePatient;consumeOrganization
     stream:
       kafka:
         binder:
@@ -40,6 +40,12 @@ spring:
           group: isi-patient-group
           consumer:
             use-native-decoding: false
+        consumeOrganization-in-0:
+          destination: isi-organization-topic
+          contentType: application/json
+          group: isi-organization-group
+          consumer:
+            use-native-decoding: false
 elasticsearch:
   index:
     transactions:
@@ -50,6 +56,7 @@ server:
 application:
   kafka:
     patient-topic: isi-patient-topic
+    organization-topic: isi-organization-topic
 
 logging:
   level:

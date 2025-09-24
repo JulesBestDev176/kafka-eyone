@@ -2,7 +2,7 @@ package net.eyone.kafka_eyone.consumers;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import net.eyone.kafka_eyone.models.PatientElastic;
+import net.eyone.kafka_eyone.models.OrganizationElastic;
 import net.eyone.kafka_eyone.services.ProcessOrganizationService;
 import net.eyone.kafka_eyone.services.ProcessPatientService;
 import net.eyone.kafka_eyone.utils.TransformationUtil;
@@ -14,26 +14,26 @@ import java.util.function.Consumer;
 @Configuration
 @RequiredArgsConstructor
 @Slf4j
-public class PatientConsumer {
+public class OrganizationConsumer {
 
     static {
         System.setProperty("spring.cloud.function.scan.packages", "net.eyone.kafka_eyone.consumers");
     }
 
-    private final ProcessPatientService processPatient;
     private final ProcessOrganizationService processOrganization;
 
+
+
     @Bean
-    public Consumer<String> consumePatient() {
+    public Consumer<String> consumeOrganization() {
         return message -> {
-            log.info("[PatientConsumer] [consumePatient] Message reçu: {}", message);
+            log.info("[OrganizationConsumer] [consumeOrganization] Message reçu: {}", message);
             Object decodedData = TransformationUtil.Base64Decoder.decodeBase64Data(message);
 
-            PatientElastic patient = TransformationUtil.ObjectMapperTransformation.jsonToObject(decodedData, PatientElastic.class);
-            
-            processPatient.processSavePatient(patient);
-            log.info("[PatientConsumer] [consumePatient] Traitement terminé");
+            OrganizationElastic organization = TransformationUtil.ObjectMapperTransformation.jsonToObject(decodedData, OrganizationElastic.class);
+
+            processOrganization.processSaveOrganization(organization);
+            log.info("[OrganizationConsumer] [consumeOrganization] Traitement terminé");
         };
     }
-
 }

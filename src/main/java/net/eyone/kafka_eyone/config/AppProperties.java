@@ -13,5 +13,6 @@ public class AppProperties {
     @Data
     public static class Kafka {
         private String patientTopic;
+        private String organizationTopic;
     }
 }

@@ -1,0 +1,1025 @@
+2025-09-24 02:46:59.817 [restartedMain] INFO  net.eyone.kafka_eyone.KafkaEyoneApplication - Starting KafkaEyoneApplication using Java 24 with PID 14904 (C:\Users\jules\Documents\informatique\Travail\eyone\jolt\kafka\kafka-eyone\target\classes started by jules in C:\Users\jules\Documents\informatique\Travail\eyone\jolt\kafka\kafka-eyone)
+2025-09-24 02:46:59.821 [restartedMain] DEBUG net.eyone.kafka_eyone.KafkaEyoneApplication - Running with Spring Boot v3.5.5, Spring v6.2.10
+2025-09-24 02:46:59.822 [restartedMain] INFO  net.eyone.kafka_eyone.KafkaEyoneApplication - No active profile set, falling back to 1 default profile: "default"
+2025-09-24 02:46:59.927 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-09-24 02:46:59.927 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-09-24 02:47:00.891 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-09-24 02:47:00.893 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2025-09-24 02:47:01.074 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 165 ms. Found 2 Elasticsearch repository interfaces.
+2025-09-24 02:47:01.359 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-09-24 02:47:01.361 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2025-09-24 02:47:01.411 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Reactive Elasticsearch - Could not safely identify store assignment for repository candidate interface net.eyone.kafka_eyone.repositories.OrganizationMongoRepository; If you want this repository to be a Reactive Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository
+2025-09-24 02:47:01.413 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Reactive Elasticsearch - Could not safely identify store assignment for repository candidate interface net.eyone.kafka_eyone.repositories.PatientMongoRepository; If you want this repository to be a Reactive Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository
+2025-09-24 02:47:01.414 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 49 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2025-09-24 02:47:01.449 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-09-24 02:47:01.449 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2025-09-24 02:47:01.465 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data MongoDB - Could not safely identify store assignment for repository candidate interface net.eyone.kafka_eyone.repositories.OrganizationElasticRepository; If you want this repository to be a MongoDB repository, consider annotating your entities with one of these annotations: org.springframework.data.mongodb.core.mapping.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.mongodb.repository.MongoRepository
+2025-09-24 02:47:01.466 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data MongoDB - Could not safely identify store assignment for repository candidate interface net.eyone.kafka_eyone.repositories.PatientElasticRepository; If you want this repository to be a MongoDB repository, consider annotating your entities with one of these annotations: org.springframework.data.mongodb.core.mapping.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.mongodb.repository.MongoRepository
+2025-09-24 02:47:01.497 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 45 ms. Found 2 MongoDB repository interfaces.
+2025-09-24 02:47:01.867 [restartedMain] INFO  o.s.i.c.DefaultConfiguringBeanFactoryPostProcessor - No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2025-09-24 02:47:01.882 [restartedMain] INFO  o.s.i.c.DefaultConfiguringBeanFactoryPostProcessor - No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2025-09-24 02:47:02.910 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-09-24 02:47:02.943 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-09-24 02:47:02.944 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.44]
+2025-09-24 02:47:03.019 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-09-24 02:47:03.020 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3091 ms
+2025-09-24 02:47:04.259 [restartedMain] INFO  org.mongodb.driver.client - MongoClient with metadata {"driver": {"name": "mongo-java-driver|sync|spring-boot", "version": "5.5.1"}, "os": {"type": "Windows", "name": "Windows 11", "architecture": "amd64", "version": "10.0"}, "platform": "Java/Oracle Corporation/24+36-3646"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=null, transportSettings=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@3878a1d2, com.mongodb.Jep395RecordCodecProvider@3ec8c25f, com.mongodb.KotlinCodecProvider@e3b1006]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverMonitoringMode=AUTO, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=JAVA_LEGACY, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null, timeoutMS=null}
+2025-09-24 02:47:04.288 [cluster-ClusterId{value='68d35ba8f23ffceea1979319', description='null'}-localhost:27017] INFO  org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, cryptd=false, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=49377400, minRoundTripTimeNanos=0}
+2025-09-24 02:47:04.484 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-09-24 02:47:06.364 [restartedMain] WARN  o.s.c.f.c.catalog.BeanFactoryAwareFunctionRegistry - Failed to locate function 'consumePatient' for function definition 'consumePatient'. Returning null.
+2025-09-24 02:47:06.371 [restartedMain] WARN  o.s.c.f.c.catalog.BeanFactoryAwareFunctionRegistry - Failed to locate function 'consumeOrganization' for function definition 'consumeOrganization'. Returning null.
+2025-09-24 02:47:06.494 [restartedMain] INFO  o.s.c.stream.messaging.DirectWithAttributesChannel - Channel 'kafka-eyone.consumePatient-in-0' has 1 subscriber(s).
+2025-09-24 02:47:06.495 [restartedMain] INFO  o.s.c.stream.messaging.DirectWithAttributesChannel - Channel 'kafka-eyone.consumeOrganization-in-0' has 1 subscriber(s).
+2025-09-24 02:47:06.706 [restartedMain] INFO  o.s.c.s.b.k.s.KafkaStreamsVersionAgnosticTopologyInfoFacade - Using method org.apache.kafka.streams.processor.internals.TopologyMetadata.sourceTopicsForStore(java.lang.String,java.lang.String)
+2025-09-24 02:47:06.909 [restartedMain] INFO  o.s.integration.endpoint.EventDrivenConsumer - Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2025-09-24 02:47:06.909 [restartedMain] INFO  o.s.integration.channel.PublishSubscribeChannel - Channel 'kafka-eyone.errorChannel' has 1 subscriber(s).
+2025-09-24 02:47:06.910 [restartedMain] INFO  o.s.integration.endpoint.EventDrivenConsumer - started bean '_org.springframework.integration.errorLogger'
+2025-09-24 02:47:06.912 [restartedMain] INFO  o.s.cloud.stream.binder.DefaultBinderFactory - Creating binder: ktable
+2025-09-24 02:47:06.912 [restartedMain] INFO  o.s.cloud.stream.binder.DefaultBinderFactory - Constructing binder child context for ktable
+2025-09-24 02:47:07.009 [restartedMain] INFO  o.s.cloud.stream.binder.DefaultBinderFactory - Caching the binder: ktable
+2025-09-24 02:47:07.010 [restartedMain] INFO  o.s.cloud.stream.binder.DefaultBinderFactory - Creating binder: kafka
+2025-09-24 02:47:07.011 [restartedMain] INFO  o.s.cloud.stream.binder.DefaultBinderFactory - Constructing binder child context for kafka
+2025-09-24 02:47:07.131 [restartedMain] INFO  o.s.cloud.stream.binder.DefaultBinderFactory - Caching the binder: kafka
+2025-09-24 02:47:07.131 [restartedMain] INFO  o.s.cloud.stream.binder.DefaultBinderFactory - Creating binder: kstream
+2025-09-24 02:47:07.132 [restartedMain] INFO  o.s.cloud.stream.binder.DefaultBinderFactory - Constructing binder child context for kstream
+2025-09-24 02:47:07.200 [restartedMain] INFO  o.s.cloud.stream.binder.DefaultBinderFactory - Caching the binder: kstream
+2025-09-24 02:47:07.201 [restartedMain] INFO  o.s.cloud.stream.binder.DefaultBinderFactory - Creating binder: globalktable
+2025-09-24 02:47:07.201 [restartedMain] INFO  o.s.cloud.stream.binder.DefaultBinderFactory - Constructing binder child context for globalktable
+2025-09-24 02:47:07.237 [restartedMain] INFO  o.s.cloud.stream.binder.DefaultBinderFactory - Caching the binder: globalktable
+2025-09-24 02:47:07.280 [restartedMain] INFO  org.apache.kafka.clients.admin.AdminClientConfig - AdminClientConfig values: 
+	auto.include.jmx.reporter = true
+	bootstrap.controllers = []
+	bootstrap.servers = [35.159.23.192:9092]
+	client.dns.lookup = use_all_dns_ips
+	client.id = 
+	connections.max.idle.ms = 300000
+	default.api.timeout.ms = 60000
+	enable.metrics.push = true
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+
+2025-09-24 02:47:07.653 [restartedMain] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version: 3.9.1
+2025-09-24 02:47:07.655 [restartedMain] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId: f745dfdcee2b9851
+2025-09-24 02:47:07.656 [restartedMain] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1758682027651
+2025-09-24 02:47:08.687 [restartedMain] DEBUG o.s.c.s.b.kafka.provisioning.KafkaTopicProvisioner - Attempting to retrieve the description for the topic: isi-patient-topic
+2025-09-24 02:47:08.835 [kafka-admin-client-thread | adminclient-1] INFO  org.apache.kafka.common.utils.AppInfoParser - App info kafka.admin.client for adminclient-1 unregistered
+2025-09-24 02:47:08.842 [kafka-admin-client-thread | adminclient-1] INFO  org.apache.kafka.common.metrics.Metrics - Metrics scheduler closed
+2025-09-24 02:47:08.843 [kafka-admin-client-thread | adminclient-1] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-09-24 02:47:08.843 [kafka-admin-client-thread | adminclient-1] INFO  org.apache.kafka.common.metrics.Metrics - Metrics reporters closed
+2025-09-24 02:47:08.857 [restartedMain] INFO  org.apache.kafka.clients.consumer.ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 100
+	auto.include.jmx.reporter = true
+	auto.offset.reset = earliest
+	bootstrap.servers = [35.159.23.192:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-isi-patient-group-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = isi-patient-group
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_committed
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2025-09-24 02:47:08.897 [restartedMain] INFO  o.a.k.c.telemetry.internals.KafkaMetricsCollector - initializing Kafka metrics collector
+2025-09-24 02:47:08.963 [restartedMain] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version: 3.9.1
+2025-09-24 02:47:08.963 [restartedMain] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId: f745dfdcee2b9851
+2025-09-24 02:47:08.963 [restartedMain] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1758682028963
+2025-09-24 02:47:09.193 [restartedMain] INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-isi-patient-group-1, groupId=isi-patient-group] Cluster ID: 143VF-exS4ODj05Ljfzynw
+2025-09-24 02:47:09.199 [restartedMain] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-isi-patient-group-1, groupId=isi-patient-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-09-24 02:47:09.199 [restartedMain] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-isi-patient-group-1, groupId=isi-patient-group] Request joining group due to: consumer pro-actively leaving the group
+2025-09-24 02:47:09.205 [restartedMain] INFO  org.apache.kafka.common.metrics.Metrics - Metrics scheduler closed
+2025-09-24 02:47:09.206 [restartedMain] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-09-24 02:47:09.206 [restartedMain] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2025-09-24 02:47:09.206 [restartedMain] INFO  org.apache.kafka.common.metrics.Metrics - Metrics reporters closed
+2025-09-24 02:47:09.211 [restartedMain] INFO  org.apache.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-isi-patient-group-1 unregistered
+2025-09-24 02:47:09.236 [restartedMain] DEBUG o.s.c.s.binder.kafka.KafkaMessageChannelBinder - Listened partitions: Partition(topic = isi-patient-topic, partition = 0, leader = 1, replicas = [1], isr = [1], offlineReplicas = [])
+2025-09-24 02:47:09.260 [restartedMain] INFO  o.s.cloud.stream.binder.BinderErrorChannel - Channel 'kafka-1115928607.consumePatient-in-0.errors' has 1 subscriber(s).
+2025-09-24 02:47:09.262 [restartedMain] INFO  o.s.cloud.stream.binder.BinderErrorChannel - Channel 'kafka-1115928607.consumePatient-in-0.errors' has 0 subscriber(s).
+2025-09-24 02:47:09.262 [restartedMain] INFO  o.s.cloud.stream.binder.BinderErrorChannel - Channel 'kafka-1115928607.consumePatient-in-0.errors' has 1 subscriber(s).
+2025-09-24 02:47:09.262 [restartedMain] INFO  o.s.cloud.stream.binder.BinderErrorChannel - Channel 'kafka-1115928607.consumePatient-in-0.errors' has 2 subscriber(s).
+2025-09-24 02:47:09.296 [restartedMain] INFO  org.apache.kafka.clients.consumer.ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 100
+	auto.include.jmx.reporter = true
+	auto.offset.reset = earliest
+	bootstrap.servers = [35.159.23.192:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-isi-patient-group-2
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = isi-patient-group
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_committed
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2025-09-24 02:47:09.297 [restartedMain] INFO  o.a.k.c.telemetry.internals.KafkaMetricsCollector - initializing Kafka metrics collector
+2025-09-24 02:47:09.316 [restartedMain] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version: 3.9.1
+2025-09-24 02:47:09.316 [restartedMain] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId: f745dfdcee2b9851
+2025-09-24 02:47:09.316 [restartedMain] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1758682029316
+2025-09-24 02:47:09.318 [restartedMain] INFO  o.a.k.c.consumer.internals.ClassicKafkaConsumer - [Consumer clientId=consumer-isi-patient-group-2, groupId=isi-patient-group] Subscribed to topic(s): isi-patient-topic
+2025-09-24 02:47:09.327 [restartedMain] INFO  o.s.i.k.inbound.KafkaMessageDrivenChannelAdapter - started org.springframework.integration.kafka.inbound.KafkaMessageDrivenChannelAdapter@1ae6c10f
+2025-09-24 02:47:09.328 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] DEBUG o.s.kafka.listener.KafkaMessageListenerContainer - Commit list: {}
+2025-09-24 02:47:09.341 [restartedMain] INFO  org.apache.kafka.clients.admin.AdminClientConfig - AdminClientConfig values: 
+	auto.include.jmx.reporter = true
+	bootstrap.controllers = []
+	bootstrap.servers = [35.159.23.192:9092]
+	client.dns.lookup = use_all_dns_ips
+	client.id = 
+	connections.max.idle.ms = 300000
+	default.api.timeout.ms = 60000
+	enable.metrics.push = true
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+
+2025-09-24 02:47:09.347 [restartedMain] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version: 3.9.1
+2025-09-24 02:47:09.348 [restartedMain] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId: f745dfdcee2b9851
+2025-09-24 02:47:09.348 [restartedMain] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1758682029347
+2025-09-24 02:47:09.563 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-isi-patient-group-2, groupId=isi-patient-group] Cluster ID: 143VF-exS4ODj05Ljfzynw
+2025-09-24 02:47:09.564 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-isi-patient-group-2, groupId=isi-patient-group] Discovered group coordinator 35.159.23.192:9092 (id: 2147483646 rack: null)
+2025-09-24 02:47:09.568 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-isi-patient-group-2, groupId=isi-patient-group] (Re-)joining group
+2025-09-24 02:47:09.792 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-isi-patient-group-2, groupId=isi-patient-group] Request joining group due to: need to re-join with the given member-id: consumer-isi-patient-group-2-a1f7686e-03b5-44a9-b09c-000a13e3880e
+2025-09-24 02:47:09.794 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-isi-patient-group-2, groupId=isi-patient-group] (Re-)joining group
+2025-09-24 02:47:09.956 [restartedMain] DEBUG o.s.c.s.b.kafka.provisioning.KafkaTopicProvisioner - Attempting to retrieve the description for the topic: isi-organization-topic
+2025-09-24 02:47:10.108 [kafka-admin-client-thread | adminclient-2] INFO  org.apache.kafka.common.utils.AppInfoParser - App info kafka.admin.client for adminclient-2 unregistered
+2025-09-24 02:47:10.110 [kafka-admin-client-thread | adminclient-2] INFO  org.apache.kafka.common.metrics.Metrics - Metrics scheduler closed
+2025-09-24 02:47:10.110 [kafka-admin-client-thread | adminclient-2] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-09-24 02:47:10.110 [kafka-admin-client-thread | adminclient-2] INFO  org.apache.kafka.common.metrics.Metrics - Metrics reporters closed
+2025-09-24 02:47:10.112 [restartedMain] INFO  org.apache.kafka.clients.consumer.ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 100
+	auto.include.jmx.reporter = true
+	auto.offset.reset = earliest
+	bootstrap.servers = [35.159.23.192:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-isi-organization-group-3
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = isi-organization-group
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_committed
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2025-09-24 02:47:10.112 [restartedMain] INFO  o.a.k.c.telemetry.internals.KafkaMetricsCollector - initializing Kafka metrics collector
+2025-09-24 02:47:10.119 [restartedMain] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version: 3.9.1
+2025-09-24 02:47:10.119 [restartedMain] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId: f745dfdcee2b9851
+2025-09-24 02:47:10.119 [restartedMain] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1758682030119
+2025-09-24 02:47:10.344 [restartedMain] INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-isi-organization-group-3, groupId=isi-organization-group] Cluster ID: 143VF-exS4ODj05Ljfzynw
+2025-09-24 02:47:10.346 [restartedMain] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-isi-organization-group-3, groupId=isi-organization-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-09-24 02:47:10.346 [restartedMain] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-isi-organization-group-3, groupId=isi-organization-group] Request joining group due to: consumer pro-actively leaving the group
+2025-09-24 02:47:10.347 [restartedMain] INFO  org.apache.kafka.common.metrics.Metrics - Metrics scheduler closed
+2025-09-24 02:47:10.347 [restartedMain] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-09-24 02:47:10.347 [restartedMain] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2025-09-24 02:47:10.347 [restartedMain] INFO  org.apache.kafka.common.metrics.Metrics - Metrics reporters closed
+2025-09-24 02:47:10.354 [restartedMain] INFO  org.apache.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-isi-organization-group-3 unregistered
+2025-09-24 02:47:10.356 [restartedMain] DEBUG o.s.c.s.binder.kafka.KafkaMessageChannelBinder - Listened partitions: Partition(topic = isi-organization-topic, partition = 0, leader = 1, replicas = [1], isr = [1], offlineReplicas = [])
+2025-09-24 02:47:10.359 [restartedMain] INFO  o.s.cloud.stream.binder.BinderErrorChannel - Channel 'kafka-1115928607.consumeOrganization-in-0.errors' has 1 subscriber(s).
+2025-09-24 02:47:10.360 [restartedMain] INFO  o.s.cloud.stream.binder.BinderErrorChannel - Channel 'kafka-1115928607.consumeOrganization-in-0.errors' has 0 subscriber(s).
+2025-09-24 02:47:10.360 [restartedMain] INFO  o.s.cloud.stream.binder.BinderErrorChannel - Channel 'kafka-1115928607.consumeOrganization-in-0.errors' has 1 subscriber(s).
+2025-09-24 02:47:10.360 [restartedMain] INFO  o.s.cloud.stream.binder.BinderErrorChannel - Channel 'kafka-1115928607.consumeOrganization-in-0.errors' has 2 subscriber(s).
+2025-09-24 02:47:10.362 [restartedMain] INFO  org.apache.kafka.clients.consumer.ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 100
+	auto.include.jmx.reporter = true
+	auto.offset.reset = earliest
+	bootstrap.servers = [35.159.23.192:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-isi-organization-group-4
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = isi-organization-group
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_committed
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2025-09-24 02:47:10.422 [restartedMain] INFO  o.a.k.c.telemetry.internals.KafkaMetricsCollector - initializing Kafka metrics collector
+2025-09-24 02:47:10.451 [restartedMain] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version: 3.9.1
+2025-09-24 02:47:10.451 [restartedMain] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId: f745dfdcee2b9851
+2025-09-24 02:47:10.451 [restartedMain] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1758682030451
+2025-09-24 02:47:10.452 [restartedMain] INFO  o.a.k.c.consumer.internals.ClassicKafkaConsumer - [Consumer clientId=consumer-isi-organization-group-4, groupId=isi-organization-group] Subscribed to topic(s): isi-organization-topic
+2025-09-24 02:47:10.454 [restartedMain] INFO  o.s.i.k.inbound.KafkaMessageDrivenChannelAdapter - started org.springframework.integration.kafka.inbound.KafkaMessageDrivenChannelAdapter@b3e7ff6
+2025-09-24 02:47:10.455 [KafkaConsumerDestination{consumerDestinationName='isi-organization-topic', partitions=1, dlqName='null'}.container-0-C-1] DEBUG o.s.kafka.listener.KafkaMessageListenerContainer - Commit list: {}
+2025-09-24 02:47:10.504 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-09-24 02:47:10.725 [KafkaConsumerDestination{consumerDestinationName='isi-organization-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-isi-organization-group-4, groupId=isi-organization-group] Cluster ID: 143VF-exS4ODj05Ljfzynw
+2025-09-24 02:47:10.727 [KafkaConsumerDestination{consumerDestinationName='isi-organization-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-isi-organization-group-4, groupId=isi-organization-group] Discovered group coordinator 35.159.23.192:9092 (id: 2147483646 rack: null)
+2025-09-24 02:47:10.731 [KafkaConsumerDestination{consumerDestinationName='isi-organization-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-isi-organization-group-4, groupId=isi-organization-group] (Re-)joining group
+2025-09-24 02:47:10.862 [restartedMain] INFO  net.eyone.kafka_eyone.KafkaEyoneApplication - Started KafkaEyoneApplication in 12.053 seconds (process running for 12.752)
+2025-09-24 02:47:10.961 [KafkaConsumerDestination{consumerDestinationName='isi-organization-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-isi-organization-group-4, groupId=isi-organization-group] Request joining group due to: need to re-join with the given member-id: consumer-isi-organization-group-4-6b0624a7-ff7f-449e-a3b9-99fd85222049
+2025-09-24 02:47:10.962 [KafkaConsumerDestination{consumerDestinationName='isi-organization-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-isi-organization-group-4, groupId=isi-organization-group] (Re-)joining group
+2025-09-24 02:47:12.871 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-isi-patient-group-2, groupId=isi-patient-group] Successfully joined group with generation Generation{generationId=259, memberId='consumer-isi-patient-group-2-a1f7686e-03b5-44a9-b09c-000a13e3880e', protocol='range'}
+2025-09-24 02:47:12.880 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-isi-patient-group-2, groupId=isi-patient-group] Finished assignment for group at generation 259: {consumer-isi-patient-group-2-a1f7686e-03b5-44a9-b09c-000a13e3880e=Assignment(partitions=[isi-patient-topic-0])}
+2025-09-24 02:47:12.962 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-isi-patient-group-2, groupId=isi-patient-group] Successfully synced group in generation Generation{generationId=259, memberId='consumer-isi-patient-group-2-a1f7686e-03b5-44a9-b09c-000a13e3880e', protocol='range'}
+2025-09-24 02:47:12.963 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-isi-patient-group-2, groupId=isi-patient-group] Notifying assignor about the new Assignment(partitions=[isi-patient-topic-0])
+2025-09-24 02:47:12.966 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-isi-patient-group-2, groupId=isi-patient-group] Adding newly assigned partitions: isi-patient-topic-0
+2025-09-24 02:47:13.050 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  o.a.kafka.clients.consumer.internals.ConsumerUtils - Setting offset for partition isi-patient-topic-0 to the committed offset FetchPosition{offset=121, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[35.159.23.192:9092 (id: 1 rack: null)], epoch=0}}
+2025-09-24 02:47:13.052 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  o.s.c.s.binder.kafka.KafkaMessageChannelBinder$2 - isi-patient-group: partitions assigned: [isi-patient-topic-0]
+2025-09-24 02:47:14.037 [KafkaConsumerDestination{consumerDestinationName='isi-organization-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-isi-organization-group-4, groupId=isi-organization-group] Successfully joined group with generation Generation{generationId=7, memberId='consumer-isi-organization-group-4-6b0624a7-ff7f-449e-a3b9-99fd85222049', protocol='range'}
+2025-09-24 02:47:14.038 [KafkaConsumerDestination{consumerDestinationName='isi-organization-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-isi-organization-group-4, groupId=isi-organization-group] Finished assignment for group at generation 7: {consumer-isi-organization-group-4-6b0624a7-ff7f-449e-a3b9-99fd85222049=Assignment(partitions=[isi-organization-topic-0])}
+2025-09-24 02:47:14.117 [KafkaConsumerDestination{consumerDestinationName='isi-organization-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-isi-organization-group-4, groupId=isi-organization-group] Successfully synced group in generation Generation{generationId=7, memberId='consumer-isi-organization-group-4-6b0624a7-ff7f-449e-a3b9-99fd85222049', protocol='range'}
+2025-09-24 02:47:14.117 [KafkaConsumerDestination{consumerDestinationName='isi-organization-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-isi-organization-group-4, groupId=isi-organization-group] Notifying assignor about the new Assignment(partitions=[isi-organization-topic-0])
+2025-09-24 02:47:14.118 [KafkaConsumerDestination{consumerDestinationName='isi-organization-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-isi-organization-group-4, groupId=isi-organization-group] Adding newly assigned partitions: isi-organization-topic-0
+2025-09-24 02:47:14.191 [KafkaConsumerDestination{consumerDestinationName='isi-organization-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-isi-organization-group-4, groupId=isi-organization-group] Found no committed offset for partition isi-organization-topic-0
+2025-09-24 02:47:14.333 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] DEBUG o.s.kafka.listener.KafkaMessageListenerContainer - Received: 0 records
+2025-09-24 02:47:14.334 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] DEBUG o.s.kafka.listener.KafkaMessageListenerContainer - Commit list: {}
+2025-09-24 02:47:14.419 [KafkaConsumerDestination{consumerDestinationName='isi-organization-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  o.a.k.clients.consumer.internals.SubscriptionState - [Consumer clientId=consumer-isi-organization-group-4, groupId=isi-organization-group] Resetting offset for partition isi-organization-topic-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[35.159.23.192:9092 (id: 1 rack: null)], epoch=0}}.
+2025-09-24 02:47:14.420 [KafkaConsumerDestination{consumerDestinationName='isi-organization-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  o.s.c.s.binder.kafka.KafkaMessageChannelBinder$2 - isi-organization-group: partitions assigned: [isi-organization-topic-0]
+2025-09-24 02:47:14.688 [http-nio-8080-exec-4] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-09-24 02:47:14.688 [http-nio-8080-exec-4] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-09-24 02:47:14.690 [http-nio-8080-exec-4] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-09-24 02:47:15.008 [http-nio-8080-exec-4] INFO  n.e.k.services.producers.impl.ProducerServiceImpl - [PatientProducerServiceImpl] [publish] publication de l'entité dans le topic Kafka: isi-patient-topic
+2025-09-24 02:47:15.091 [http-nio-8080-exec-4] INFO  o.s.c.s.b.kafka.provisioning.KafkaTopicProvisioner - Using kafka topic for outbound: isi-patient-topic
+2025-09-24 02:47:15.092 [http-nio-8080-exec-4] INFO  org.apache.kafka.clients.admin.AdminClientConfig - AdminClientConfig values: 
+	auto.include.jmx.reporter = true
+	bootstrap.controllers = []
+	bootstrap.servers = [35.159.23.192:9092]
+	client.dns.lookup = use_all_dns_ips
+	client.id = 
+	connections.max.idle.ms = 300000
+	default.api.timeout.ms = 60000
+	enable.metrics.push = true
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+
+2025-09-24 02:47:15.099 [http-nio-8080-exec-4] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version: 3.9.1
+2025-09-24 02:47:15.100 [http-nio-8080-exec-4] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId: f745dfdcee2b9851
+2025-09-24 02:47:15.100 [http-nio-8080-exec-4] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1758682035099
+2025-09-24 02:47:15.456 [KafkaConsumerDestination{consumerDestinationName='isi-organization-topic', partitions=1, dlqName='null'}.container-0-C-1] DEBUG o.s.kafka.listener.KafkaMessageListenerContainer - Received: 0 records
+2025-09-24 02:47:15.456 [KafkaConsumerDestination{consumerDestinationName='isi-organization-topic', partitions=1, dlqName='null'}.container-0-C-1] DEBUG o.s.kafka.listener.KafkaMessageListenerContainer - Commit list: {}
+2025-09-24 02:47:16.117 [http-nio-8080-exec-4] DEBUG o.s.c.s.b.kafka.provisioning.KafkaTopicProvisioner - Attempting to retrieve the description for the topic: isi-patient-topic
+2025-09-24 02:47:16.286 [kafka-admin-client-thread | adminclient-3] INFO  org.apache.kafka.common.utils.AppInfoParser - App info kafka.admin.client for adminclient-3 unregistered
+2025-09-24 02:47:16.291 [kafka-admin-client-thread | adminclient-3] INFO  org.apache.kafka.common.metrics.Metrics - Metrics scheduler closed
+2025-09-24 02:47:16.292 [kafka-admin-client-thread | adminclient-3] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-09-24 02:47:16.293 [kafka-admin-client-thread | adminclient-3] INFO  org.apache.kafka.common.metrics.Metrics - Metrics reporters closed
+2025-09-24 02:47:16.304 [http-nio-8080-exec-4] INFO  org.apache.kafka.clients.producer.ProducerConfig - Idempotence will be disabled because acks is set to 1, not set to 'all'.
+2025-09-24 02:47:16.305 [http-nio-8080-exec-4] INFO  org.apache.kafka.clients.producer.ProducerConfig - ProducerConfig values: 
+	acks = 1
+	auto.include.jmx.reporter = true
+	batch.size = 16384
+	bootstrap.servers = [35.159.23.192:9092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = producer-1
+	compression.gzip.level = -1
+	compression.lz4.level = 9
+	compression.type = none
+	compression.zstd.level = 3
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = false
+	enable.metrics.push = true
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 0
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.adaptive.partitioning.enable = true
+	partitioner.availability.timeout.ms = 0
+	partitioner.class = null
+	partitioner.ignore.keys = false
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.springframework.kafka.support.serializer.JsonSerializer
+
+2025-09-24 02:47:16.554 [http-nio-8080-exec-4] INFO  o.a.k.c.telemetry.internals.KafkaMetricsCollector - initializing Kafka metrics collector
+2025-09-24 02:47:16.593 [http-nio-8080-exec-4] INFO  org.apache.kafka.clients.producer.ProducerConfig - These configurations '[spring.json.trusted.packages]' were supplied but are not used yet.
+2025-09-24 02:47:16.594 [http-nio-8080-exec-4] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka version: 3.9.1
+2025-09-24 02:47:16.594 [http-nio-8080-exec-4] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka commitId: f745dfdcee2b9851
+2025-09-24 02:47:16.594 [http-nio-8080-exec-4] INFO  org.apache.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1758682036594
+2025-09-24 02:47:16.597 [http-nio-8080-exec-4] DEBUG o.s.kafka.core.DefaultKafkaProducerFactory - Created new Producer: CloseSafeProducer [delegate=org.apache.kafka.clients.producer.KafkaProducer@149e3c05]
+2025-09-24 02:47:16.821 [kafka-producer-network-thread | producer-1] INFO  org.apache.kafka.clients.Metadata - [Producer clientId=producer-1] Cluster ID: 143VF-exS4ODj05Ljfzynw
+2025-09-24 02:47:16.833 [http-nio-8080-exec-4] INFO  o.s.c.stream.messaging.DirectWithAttributesChannel - Channel 'kafka-eyone.isi-patient-topic' has 1 subscriber(s).
+2025-09-24 02:47:16.865 [http-nio-8080-exec-4] DEBUG o.s.c.stream.messaging.DirectWithAttributesChannel - preSend on channel 'org.springframework.cloud.stream.messaging.DirectWithAttributesChannel@614d5c66', message: GenericMessage [payload=byte[97], headers={id=7c178c2d-4996-95d8-9bf3-d112f2c6eaaf, contentType=application/json, target-protocol=kafka, timestamp=1758682036864}]
+2025-09-24 02:47:16.865 [http-nio-8080-exec-4] DEBUG o.s.c.s.b.AbstractMessageChannelBinder$SendingHandler - org.springframework.cloud.stream.binder.AbstractMessageChannelBinder$SendingHandler@492b823e received message: GenericMessage [payload=byte[97], headers={id=7c178c2d-4996-95d8-9bf3-d112f2c6eaaf, contentType=application/json, target-protocol=kafka, timestamp=1758682036864}]
+2025-09-24 02:47:16.867 [http-nio-8080-exec-4] DEBUG o.s.c.s.b.k.KafkaMessageChannelBinder$ProducerConfigurationMessageHandler - org.springframework.cloud.stream.binder.kafka.KafkaMessageChannelBinder$ProducerConfigurationMessageHandler@30272cf3 received message: GenericMessage [payload=byte[97], headers={id=5b4e4700-fccb-e5da-aef1-8b5ae3425190, contentType=application/json, target-protocol=kafka, timestamp=1758682036867}]
+2025-09-24 02:47:16.870 [http-nio-8080-exec-4] DEBUG o.s.k.s.AbstractKafkaHeaderMapper$SimplePatternBasedHeaderMatcher - headerName=[id] WILL NOT be mapped, matched pattern=!id
+2025-09-24 02:47:16.870 [http-nio-8080-exec-4] DEBUG o.s.k.s.AbstractKafkaHeaderMapper$SimplePatternBasedHeaderMatcher - headerName=[contentType] WILL be mapped, matched pattern=*
+2025-09-24 02:47:16.870 [http-nio-8080-exec-4] DEBUG o.s.k.s.AbstractKafkaHeaderMapper$SimplePatternBasedHeaderMatcher - headerName=[target-protocol] WILL be mapped, matched pattern=*
+2025-09-24 02:47:16.870 [http-nio-8080-exec-4] DEBUG o.s.k.s.AbstractKafkaHeaderMapper$SimplePatternBasedHeaderMatcher - headerName=[timestamp] WILL NOT be mapped, matched pattern=!timestamp
+2025-09-24 02:47:16.904 [http-nio-8080-exec-4] DEBUG o.s.c.s.b.k.KafkaMessageChannelBinder$ProducerConfigurationMessageHandler - handler 'org.springframework.cloud.stream.binder.kafka.KafkaMessageChannelBinder$ProducerConfigurationMessageHandler@30272cf3' produced no reply for request Message: GenericMessage [payload=byte[97], headers={id=5b4e4700-fccb-e5da-aef1-8b5ae3425190, contentType=application/json, target-protocol=kafka, timestamp=1758682036867}]
+2025-09-24 02:47:16.906 [http-nio-8080-exec-4] DEBUG o.s.c.stream.messaging.DirectWithAttributesChannel - postSend (sent=true) on channel 'org.springframework.cloud.stream.messaging.DirectWithAttributesChannel@614d5c66', message: GenericMessage [payload=byte[97], headers={id=7c178c2d-4996-95d8-9bf3-d112f2c6eaaf, contentType=application/json, target-protocol=kafka, timestamp=1758682036864}]
+2025-09-24 02:47:16.906 [http-nio-8080-exec-4] INFO  n.e.k.services.producers.impl.ProducerServiceImpl - [PatientProducerServiceImpl] [publish] entité publiée: Patient
+2025-09-24 02:47:16.906 [http-nio-8080-exec-4] INFO  n.e.k.services.producers.impl.ProducerServiceImpl - [PatientProducerServiceImpl] [publish] message envoyé avec succès au topic: isi-patient-topic
+2025-09-24 02:47:17.153 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] DEBUG o.s.kafka.listener.KafkaMessageListenerContainer - Received: 1 records
+2025-09-24 02:47:17.191 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] DEBUG o.s.c.stream.messaging.DirectWithAttributesChannel - preSend on channel 'bean 'consumePatient-in-0'', message: GenericMessage [payload="eyJpZCI6bnVsbCwibm9tIjoiRmFsbCIsInByZW5vbSI6ImtoYWR5IiwibnVtZXJvIjoiNzg3MTUxMDYyIiwic2V4ZSI6IjIwIiwiYWdlIjozMiwic3RhdHV0IjpudWxsfQ==", headers={kafka_offset=121, scst_nativeHeadersPresent=true, kafka_consumer=org.springframework.kafka.core.DefaultKafkaConsumerFactory$ExtendedKafkaConsumer@276f6246, deliveryAttempt=1, kafka_timestampType=CREATE_TIME, kafka_receivedPartitionId=0, contentType=application/json, kafka_receivedTopic=isi-patient-topic, kafka_receivedTimestamp=1758682036886, kafka_groupId=isi-patient-group, target-protocol=kafka}]
+2025-09-24 02:47:17.192 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] DEBUG o.s.c.s.f.FunctionConfiguration$FunctionToDestinationBinder$1 - org.springframework.cloud.stream.function.FunctionConfiguration$FunctionToDestinationBinder$1@79017f8b received message: GenericMessage [payload="eyJpZCI6bnVsbCwibm9tIjoiRmFsbCIsInByZW5vbSI6ImtoYWR5IiwibnVtZXJvIjoiNzg3MTUxMDYyIiwic2V4ZSI6IjIwIiwiYWdlIjozMiwic3RhdHV0IjpudWxsfQ==", headers={kafka_offset=121, scst_nativeHeadersPresent=true, kafka_consumer=org.springframework.kafka.core.DefaultKafkaConsumerFactory$ExtendedKafkaConsumer@276f6246, deliveryAttempt=1, kafka_timestampType=CREATE_TIME, kafka_receivedPartitionId=0, contentType=application/json, kafka_receivedTopic=isi-patient-topic, kafka_receivedTimestamp=1758682036886, kafka_groupId=isi-patient-group, target-protocol=kafka}]
+2025-09-24 02:47:17.198 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  net.eyone.kafka_eyone.consumers.OrganizationConsumer - [MonConsumer] [consumePatient] ========== DÉBUT TRAITEMENT PATIENT ==========
+2025-09-24 02:47:17.198 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  net.eyone.kafka_eyone.consumers.OrganizationConsumer - [MonConsumer] [consumePatient] Timestamp: 2025-09-24T02:47:17.198019900Z
+2025-09-24 02:47:17.199 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  net.eyone.kafka_eyone.consumers.OrganizationConsumer - [MonConsumer] [consumePatient] Thread: KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1
+2025-09-24 02:47:17.199 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  net.eyone.kafka_eyone.consumers.OrganizationConsumer - [MonConsumer] [consumePatient] Message reçu (longueur: 134): "eyJpZCI6bnVsbCwibm9tIjoiRmFsbCIsInByZW5vbSI6ImtoYWR5IiwibnVtZXJvIjoiNzg3MTUxMDYyIiwic2V4ZSI6IjIwIiwiYWdlIjozMiwic3RhdHV0IjpudWxsfQ=="
+2025-09-24 02:47:17.199 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  n.e.k.services.process.patients.ProcessPatient - [ProcessPatient] [process] Traitement des données: "eyJpZCI6bnVsbCwibm9tIjoiRmFsbCIsInByZW5vbSI6ImtoYWR5IiwibnVtZXJvIjoiNzg3MTUxMDYyIiwic2V4ZSI6IjIwIiwiYWdlIjozMiwic3RhdHV0IjpudWxsfQ==" avec spec: spec/patient.json
+2025-09-24 02:47:17.469 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  n.e.k.s.p.impl.PatientElasticsearchServiceImpl - [PatientElasticsearchService] [save] Entité Patient sauvegardée
+2025-09-24 02:47:17.470 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  n.e.k.s.p.impl.PatientElasticsearchServiceImpl - [PatientElasticsearchService] [save] Patient sauvegardé: afb0e6de-295c-411a-9d50-150549aaae6a
+2025-09-24 02:47:17.470 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  n.e.k.services.process.patients.ProcessPatient - [ProcessPatient] [process] Patient sauvegardé dans Elasticsearch: afb0e6de-295c-411a-9d50-150549aaae6a
+2025-09-24 02:47:17.477 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  net.eyone.kafka_eyone.utils.TransformationUtil - [ObjectMapperTransformation] [parseJson] Type de retour: LinkedHashMap
+2025-09-24 02:47:17.478 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  n.e.k.services.process.patients.ProcessPatient - [ProcessPatient] Données décodées Base64: {id=null, nom=Fall, prenom=khady, numero=787151062, sexe=20, age=32, statut=null}
+2025-09-24 02:47:17.478 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  n.e.k.services.process.patients.ProcessPatient - [ProcessPatient] Données AVANT transformation JOLT: {id=null, nom=Fall, prenom=khady, numero=787151062, sexe=20, age=32, statut=null}
+2025-09-24 02:47:17.479 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  net.eyone.kafka_eyone.utils.TransformationUtil - [PatientTransformationService] [transformationComplet] Resultat: {id=null, nom=Fall, prenom=khady, numero=787151062, sexe=20, age=32, statut=null}
+2025-09-24 02:47:17.556 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  net.eyone.kafka_eyone.utils.TransformationUtil - [PatientTransformationService] [transformationComplet] Resultat Jolt: {id=null, firstname=khady, lastname=Fall, phoneNumber=787151062, gender=20, age=32}
+2025-09-24 02:47:17.564 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  net.eyone.kafka_eyone.utils.TransformationUtil - [PatientTransformationService] [transformationComplet] Resultat: PatientDto(id=null, firstname=khady, lastname=Fall, phoneNumber=787151062, gender=20, age=32)
+2025-09-24 02:47:17.567 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  n.e.k.services.process.patients.ProcessPatient - [ProcessPatient] Données APRÈS transformation JOLT: PatientDto(id=null, firstname=khady, lastname=Fall, phoneNumber=787151062, gender=20, age=32)
+2025-09-24 02:47:17.567 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  n.e.k.services.process.patients.ProcessPatient - [ProcessPatient] ID défini: afb0e6de-295c-411a-9d50-150549aaae6a pour PatientDto
+2025-09-24 02:47:17.567 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  n.e.k.s.patients.impl.PatientMongoServiceImpl - [PatientMongoService] Tentative de sauvegarde: Patient(id=afb0e6de-295c-411a-9d50-150549aaae6a, firstname=khady, lastname=Fall, phoneNumber=787151062, gender=20, age=32)
+2025-09-24 02:47:17.574 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  n.e.k.s.patients.impl.PatientMongoServiceImpl - [PatientMongoService] Base de données utilisée: kafka_eyone
+2025-09-24 02:47:17.589 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] DEBUG o.springframework.data.mongodb.core.MongoTemplate - Saving Document containing fields: [_id, firstname, lastname, phoneNumber, gender, age, _class]
+2025-09-24 02:47:17.672 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  n.e.k.s.patients.impl.PatientMongoServiceImpl - [PatientMongoService] [save] Entité sauvegardée dans MongoDB: Patient
+2025-09-24 02:47:17.710 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  n.e.k.s.patients.impl.PatientMongoServiceImpl - [PatientMongoService] Nombre total de documents dans patients: 5
+2025-09-24 02:47:17.762 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  n.e.k.s.patients.impl.PatientMongoServiceImpl - [PatientMongoService] Document trouvé: Patient(id=521c96d5-0bcc-4552-9c58-cb90701c91e6, firstname=Fatou, lastname=Fall, phoneNumber=787151062, gender=20, age=32)
+2025-09-24 02:47:17.762 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  n.e.k.s.patients.impl.PatientMongoServiceImpl - [PatientMongoService] Document trouvé: Patient(id=874a6d10-f2f1-491c-88a3-cad7c30d9a97, firstname=, lastname=Hôpital Principal de Dakar, phoneNumber=, gender=N/A, age=0)
+2025-09-24 02:47:17.762 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  n.e.k.s.patients.impl.PatientMongoServiceImpl - [PatientMongoService] Document trouvé: Patient(id=19e84426-ba23-4ee7-8986-9594a6ef7e66, firstname=, lastname=Hôpital Principal de Dakar, phoneNumber=, gender=N/A, age=0)
+2025-09-24 02:47:17.763 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  n.e.k.s.patients.impl.PatientMongoServiceImpl - [PatientMongoService] Document trouvé: Patient(id=956042bb-b57d-4c86-8665-bd51c733f89d, firstname=khady, lastname=Fall, phoneNumber=787151062, gender=20, age=32)
+2025-09-24 02:47:17.763 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  n.e.k.s.patients.impl.PatientMongoServiceImpl - [PatientMongoService] Document trouvé: Patient(id=afb0e6de-295c-411a-9d50-150549aaae6a, firstname=khady, lastname=Fall, phoneNumber=787151062, gender=20, age=32)
+2025-09-24 02:47:17.763 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  n.e.k.s.patients.impl.PatientMongoServiceImpl - [PatientMongoService] Patient sauvegardé avec ID: afb0e6de-295c-411a-9d50-150549aaae6a
+2025-09-24 02:47:17.763 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  n.e.k.services.process.patients.ProcessPatient - [ProcessPatient] Patient sauvegardé dans MongoDB
+2025-09-24 02:47:17.809 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  n.e.k.s.p.impl.PatientElasticsearchServiceImpl - [PatientElasticsearchService] [updateStatus] Statut mis à jour: success pour ID: afb0e6de-295c-411a-9d50-150549aaae6a
+2025-09-24 02:47:17.809 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  n.e.k.services.process.patients.ProcessPatient - [ProcessPatient] [process] Traitement terminé
+2025-09-24 02:47:17.809 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  net.eyone.kafka_eyone.consumers.OrganizationConsumer - [MonConsumer] [consumePatient] Traitement terminé avec succès en 611 ms
+2025-09-24 02:47:17.810 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  net.eyone.kafka_eyone.consumers.OrganizationConsumer - [MonConsumer] [consumePatient] ========== FIN TRAITEMENT PATIENT ==========
+2025-09-24 02:47:17.810 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] DEBUG o.s.c.s.f.FunctionConfiguration$FunctionToDestinationBinder$1 - Function execution resulted in null. No message will be sent
+2025-09-24 02:47:17.810 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] DEBUG o.s.c.stream.messaging.DirectWithAttributesChannel - postSend (sent=true) on channel 'bean 'consumePatient-in-0'', message: GenericMessage [payload="eyJpZCI6bnVsbCwibm9tIjoiRmFsbCIsInByZW5vbSI6ImtoYWR5IiwibnVtZXJvIjoiNzg3MTUxMDYyIiwic2V4ZSI6IjIwIiwiYWdlIjozMiwic3RhdHV0IjpudWxsfQ==", headers={kafka_offset=121, scst_nativeHeadersPresent=true, kafka_consumer=org.springframework.kafka.core.DefaultKafkaConsumerFactory$ExtendedKafkaConsumer@276f6246, deliveryAttempt=1, kafka_timestampType=CREATE_TIME, kafka_receivedPartitionId=0, contentType=application/json, kafka_receivedTopic=isi-patient-topic, kafka_receivedTimestamp=1758682036886, kafka_groupId=isi-patient-group, target-protocol=kafka}]
+2025-09-24 02:47:17.814 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] DEBUG o.s.kafka.listener.KafkaMessageListenerContainer - Commit list: {isi-patient-topic-0=OffsetAndMetadata{offset=122, leaderEpoch=null, metadata=''}}
+2025-09-24 02:47:17.815 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] DEBUG o.s.kafka.listener.KafkaMessageListenerContainer - Committing: {isi-patient-topic-0=OffsetAndMetadata{offset=122, leaderEpoch=null, metadata=''}}
+2025-09-24 02:47:20.456 [KafkaConsumerDestination{consumerDestinationName='isi-organization-topic', partitions=1, dlqName='null'}.container-0-C-1] DEBUG o.s.kafka.listener.KafkaMessageListenerContainer - Received: 0 records
+2025-09-24 02:47:20.457 [KafkaConsumerDestination{consumerDestinationName='isi-organization-topic', partitions=1, dlqName='null'}.container-0-C-1] DEBUG o.s.kafka.listener.KafkaMessageListenerContainer - Commit list: {}
+2025-09-24 02:47:22.896 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] DEBUG o.s.kafka.listener.KafkaMessageListenerContainer - Received: 0 records
+2025-09-24 02:47:22.896 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] DEBUG o.s.kafka.listener.KafkaMessageListenerContainer - Commit list: {}
+2025-09-24 02:47:25.457 [KafkaConsumerDestination{consumerDestinationName='isi-organization-topic', partitions=1, dlqName='null'}.container-0-C-1] DEBUG o.s.kafka.listener.KafkaMessageListenerContainer - Received: 0 records
+2025-09-24 02:47:25.457 [KafkaConsumerDestination{consumerDestinationName='isi-organization-topic', partitions=1, dlqName='null'}.container-0-C-1] DEBUG o.s.kafka.listener.KafkaMessageListenerContainer - Commit list: {}
+2025-09-24 02:47:27.897 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] DEBUG o.s.kafka.listener.KafkaMessageListenerContainer - Received: 0 records
+2025-09-24 02:47:27.897 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] DEBUG o.s.kafka.listener.KafkaMessageListenerContainer - Commit list: {}
+2025-09-24 02:47:30.458 [KafkaConsumerDestination{consumerDestinationName='isi-organization-topic', partitions=1, dlqName='null'}.container-0-C-1] DEBUG o.s.kafka.listener.KafkaMessageListenerContainer - Received: 0 records
+2025-09-24 02:47:30.458 [KafkaConsumerDestination{consumerDestinationName='isi-organization-topic', partitions=1, dlqName='null'}.container-0-C-1] DEBUG o.s.kafka.listener.KafkaMessageListenerContainer - Commit list: {}
+2025-09-24 02:47:32.897 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] DEBUG o.s.kafka.listener.KafkaMessageListenerContainer - Received: 0 records
+2025-09-24 02:47:32.897 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] DEBUG o.s.kafka.listener.KafkaMessageListenerContainer - Commit list: {}
+2025-09-24 02:47:35.459 [KafkaConsumerDestination{consumerDestinationName='isi-organization-topic', partitions=1, dlqName='null'}.container-0-C-1] DEBUG o.s.kafka.listener.KafkaMessageListenerContainer - Received: 0 records
+2025-09-24 02:47:35.459 [KafkaConsumerDestination{consumerDestinationName='isi-organization-topic', partitions=1, dlqName='null'}.container-0-C-1] DEBUG o.s.kafka.listener.KafkaMessageListenerContainer - Commit list: {}
+2025-09-24 02:47:37.897 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] DEBUG o.s.kafka.listener.KafkaMessageListenerContainer - Received: 0 records
+2025-09-24 02:47:37.897 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] DEBUG o.s.kafka.listener.KafkaMessageListenerContainer - Commit list: {}
+2025-09-24 02:47:40.459 [KafkaConsumerDestination{consumerDestinationName='isi-organization-topic', partitions=1, dlqName='null'}.container-0-C-1] DEBUG o.s.kafka.listener.KafkaMessageListenerContainer - Received: 0 records
+2025-09-24 02:47:40.459 [KafkaConsumerDestination{consumerDestinationName='isi-organization-topic', partitions=1, dlqName='null'}.container-0-C-1] DEBUG o.s.kafka.listener.KafkaMessageListenerContainer - Commit list: {}
+2025-09-24 02:47:42.897 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] DEBUG o.s.kafka.listener.KafkaMessageListenerContainer - Received: 0 records
+2025-09-24 02:47:42.897 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] DEBUG o.s.kafka.listener.KafkaMessageListenerContainer - Commit list: {}
+2025-09-24 02:47:45.459 [KafkaConsumerDestination{consumerDestinationName='isi-organization-topic', partitions=1, dlqName='null'}.container-0-C-1] DEBUG o.s.kafka.listener.KafkaMessageListenerContainer - Received: 0 records
+2025-09-24 02:47:45.459 [KafkaConsumerDestination{consumerDestinationName='isi-organization-topic', partitions=1, dlqName='null'}.container-0-C-1] DEBUG o.s.kafka.listener.KafkaMessageListenerContainer - Commit list: {}
+2025-09-24 02:47:47.898 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] DEBUG o.s.kafka.listener.KafkaMessageListenerContainer - Received: 0 records
+2025-09-24 02:47:47.899 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] DEBUG o.s.kafka.listener.KafkaMessageListenerContainer - Commit list: {}
+2025-09-24 02:47:50.468 [KafkaConsumerDestination{consumerDestinationName='isi-organization-topic', partitions=1, dlqName='null'}.container-0-C-1] DEBUG o.s.kafka.listener.KafkaMessageListenerContainer - Received: 0 records
+2025-09-24 02:47:50.468 [KafkaConsumerDestination{consumerDestinationName='isi-organization-topic', partitions=1, dlqName='null'}.container-0-C-1] DEBUG o.s.kafka.listener.KafkaMessageListenerContainer - Commit list: {}
+2025-09-24 02:47:52.901 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] DEBUG o.s.kafka.listener.KafkaMessageListenerContainer - Received: 0 records
+2025-09-24 02:47:52.901 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] DEBUG o.s.kafka.listener.KafkaMessageListenerContainer - Commit list: {}
+2025-09-24 02:47:55.468 [KafkaConsumerDestination{consumerDestinationName='isi-organization-topic', partitions=1, dlqName='null'}.container-0-C-1] DEBUG o.s.kafka.listener.KafkaMessageListenerContainer - Received: 0 records
+2025-09-24 02:47:55.469 [KafkaConsumerDestination{consumerDestinationName='isi-organization-topic', partitions=1, dlqName='null'}.container-0-C-1] DEBUG o.s.kafka.listener.KafkaMessageListenerContainer - Commit list: {}
+2025-09-24 02:47:57.901 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] DEBUG o.s.kafka.listener.KafkaMessageListenerContainer - Received: 0 records
+2025-09-24 02:47:57.902 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] DEBUG o.s.kafka.listener.KafkaMessageListenerContainer - Commit list: {}
+2025-09-24 02:48:00.470 [KafkaConsumerDestination{consumerDestinationName='isi-organization-topic', partitions=1, dlqName='null'}.container-0-C-1] DEBUG o.s.kafka.listener.KafkaMessageListenerContainer - Received: 0 records
+2025-09-24 02:48:00.470 [KafkaConsumerDestination{consumerDestinationName='isi-organization-topic', partitions=1, dlqName='null'}.container-0-C-1] DEBUG o.s.kafka.listener.KafkaMessageListenerContainer - Commit list: {}
+2025-09-24 02:48:01.549 [SpringApplicationShutdownHook] INFO  o.s.boot.web.embedded.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-09-24 02:48:01.560 [tomcat-shutdown] INFO  o.s.boot.web.embedded.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-09-24 02:48:01.564 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] DEBUG o.s.kafka.listener.KafkaMessageListenerContainer - Commit list: {}
+2025-09-24 02:48:01.564 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-isi-patient-group-2, groupId=isi-patient-group] Revoke previously assigned partitions isi-patient-topic-0
+2025-09-24 02:48:01.564 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  o.s.c.s.binder.kafka.KafkaMessageChannelBinder$2 - isi-patient-group: partitions revoked: [isi-patient-topic-0]
+2025-09-24 02:48:01.564 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] DEBUG o.s.kafka.listener.KafkaMessageListenerContainer - Commit list: {}
+2025-09-24 02:48:01.565 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-isi-patient-group-2, groupId=isi-patient-group] Member consumer-isi-patient-group-2-a1f7686e-03b5-44a9-b09c-000a13e3880e sending LeaveGroup request to coordinator 35.159.23.192:9092 (id: 2147483646 rack: null) due to the consumer unsubscribed from all topics
+2025-09-24 02:48:01.565 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-isi-patient-group-2, groupId=isi-patient-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-09-24 02:48:01.565 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-isi-patient-group-2, groupId=isi-patient-group] Request joining group due to: consumer pro-actively leaving the group
+2025-09-24 02:48:01.565 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  o.a.k.c.consumer.internals.ClassicKafkaConsumer - [Consumer clientId=consumer-isi-patient-group-2, groupId=isi-patient-group] Unsubscribed all topics or patterns and assigned partitions
+2025-09-24 02:48:01.565 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-isi-patient-group-2, groupId=isi-patient-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-09-24 02:48:01.565 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-isi-patient-group-2, groupId=isi-patient-group] Request joining group due to: consumer pro-actively leaving the group
+2025-09-24 02:48:02.101 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Metrics scheduler closed
+2025-09-24 02:48:02.102 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-09-24 02:48:02.102 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2025-09-24 02:48:02.102 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Metrics reporters closed
+2025-09-24 02:48:02.104 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  org.apache.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-isi-patient-group-2 unregistered
+2025-09-24 02:48:02.105 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - isi-patient-group: Consumer stopped
+2025-09-24 02:48:02.106 [KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0-C-1] DEBUG o.s.kafka.listener.KafkaMessageListenerContainer - KafkaMessageListenerContainer [id=KafkaConsumerDestination{consumerDestinationName='isi-patient-topic', partitions=1, dlqName='null'}.container-0, clientIndex=-0, topicPartitions=[]] stopped normally
+2025-09-24 02:48:02.107 [SpringApplicationShutdownHook] INFO  o.s.i.k.inbound.KafkaMessageDrivenChannelAdapter - stopped org.springframework.integration.kafka.inbound.KafkaMessageDrivenChannelAdapter@1ae6c10f
+2025-09-24 02:48:02.112 [SpringApplicationShutdownHook] INFO  o.s.cloud.stream.binder.BinderErrorChannel - Channel 'kafka-eyone.kafka-1115928607.consumePatient-in-0.errors' has 1 subscriber(s).
+2025-09-24 02:48:02.112 [SpringApplicationShutdownHook] INFO  o.s.cloud.stream.binder.BinderErrorChannel - Channel 'kafka-eyone.kafka-1115928607.consumePatient-in-0.errors' has 0 subscriber(s).
+2025-09-24 02:48:02.113 [KafkaConsumerDestination{consumerDestinationName='isi-organization-topic', partitions=1, dlqName='null'}.container-0-C-1] DEBUG o.s.kafka.listener.KafkaMessageListenerContainer - Commit list: {}
+2025-09-24 02:48:02.113 [KafkaConsumerDestination{consumerDestinationName='isi-organization-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-isi-organization-group-4, groupId=isi-organization-group] Revoke previously assigned partitions isi-organization-topic-0
+2025-09-24 02:48:02.113 [KafkaConsumerDestination{consumerDestinationName='isi-organization-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  o.s.c.s.binder.kafka.KafkaMessageChannelBinder$2 - isi-organization-group: partitions revoked: [isi-organization-topic-0]
+2025-09-24 02:48:02.113 [KafkaConsumerDestination{consumerDestinationName='isi-organization-topic', partitions=1, dlqName='null'}.container-0-C-1] DEBUG o.s.kafka.listener.KafkaMessageListenerContainer - Commit list: {}
+2025-09-24 02:48:02.113 [KafkaConsumerDestination{consumerDestinationName='isi-organization-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-isi-organization-group-4, groupId=isi-organization-group] Member consumer-isi-organization-group-4-6b0624a7-ff7f-449e-a3b9-99fd85222049 sending LeaveGroup request to coordinator 35.159.23.192:9092 (id: 2147483646 rack: null) due to the consumer unsubscribed from all topics
+2025-09-24 02:48:02.114 [KafkaConsumerDestination{consumerDestinationName='isi-organization-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-isi-organization-group-4, groupId=isi-organization-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-09-24 02:48:02.114 [KafkaConsumerDestination{consumerDestinationName='isi-organization-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-isi-organization-group-4, groupId=isi-organization-group] Request joining group due to: consumer pro-actively leaving the group
+2025-09-24 02:48:02.114 [KafkaConsumerDestination{consumerDestinationName='isi-organization-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  o.a.k.c.consumer.internals.ClassicKafkaConsumer - [Consumer clientId=consumer-isi-organization-group-4, groupId=isi-organization-group] Unsubscribed all topics or patterns and assigned partitions
+2025-09-24 02:48:02.114 [KafkaConsumerDestination{consumerDestinationName='isi-organization-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-isi-organization-group-4, groupId=isi-organization-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-09-24 02:48:02.114 [KafkaConsumerDestination{consumerDestinationName='isi-organization-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator - [Consumer clientId=consumer-isi-organization-group-4, groupId=isi-organization-group] Request joining group due to: consumer pro-actively leaving the group
+2025-09-24 02:48:02.647 [KafkaConsumerDestination{consumerDestinationName='isi-organization-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Metrics scheduler closed
+2025-09-24 02:48:02.647 [KafkaConsumerDestination{consumerDestinationName='isi-organization-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-09-24 02:48:02.647 [KafkaConsumerDestination{consumerDestinationName='isi-organization-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2025-09-24 02:48:02.647 [KafkaConsumerDestination{consumerDestinationName='isi-organization-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  org.apache.kafka.common.metrics.Metrics - Metrics reporters closed
+2025-09-24 02:48:02.651 [KafkaConsumerDestination{consumerDestinationName='isi-organization-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  org.apache.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-isi-organization-group-4 unregistered
+2025-09-24 02:48:02.651 [KafkaConsumerDestination{consumerDestinationName='isi-organization-topic', partitions=1, dlqName='null'}.container-0-C-1] INFO  o.s.kafka.listener.KafkaMessageListenerContainer - isi-organization-group: Consumer stopped
+2025-09-24 02:48:02.651 [KafkaConsumerDestination{consumerDestinationName='isi-organization-topic', partitions=1, dlqName='null'}.container-0-C-1] DEBUG o.s.kafka.listener.KafkaMessageListenerContainer - KafkaMessageListenerContainer [id=KafkaConsumerDestination{consumerDestinationName='isi-organization-topic', partitions=1, dlqName='null'}.container-0, clientIndex=-0, topicPartitions=[]] stopped normally
+2025-09-24 02:48:02.651 [SpringApplicationShutdownHook] INFO  o.s.i.k.inbound.KafkaMessageDrivenChannelAdapter - stopped org.springframework.integration.kafka.inbound.KafkaMessageDrivenChannelAdapter@b3e7ff6
+2025-09-24 02:48:02.653 [SpringApplicationShutdownHook] INFO  o.s.cloud.stream.binder.BinderErrorChannel - Channel 'kafka-eyone.kafka-1115928607.consumeOrganization-in-0.errors' has 1 subscriber(s).
+2025-09-24 02:48:02.653 [SpringApplicationShutdownHook] INFO  o.s.cloud.stream.binder.BinderErrorChannel - Channel 'kafka-eyone.kafka-1115928607.consumeOrganization-in-0.errors' has 0 subscriber(s).
+2025-09-24 02:48:02.655 [SpringApplicationShutdownHook] INFO  o.s.integration.endpoint.EventDrivenConsumer - Removing {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2025-09-24 02:48:02.655 [SpringApplicationShutdownHook] INFO  o.s.integration.channel.PublishSubscribeChannel - Channel 'kafka-eyone.errorChannel' has 0 subscriber(s).
+2025-09-24 02:48:02.655 [SpringApplicationShutdownHook] INFO  o.s.integration.endpoint.EventDrivenConsumer - stopped bean '_org.springframework.integration.errorLogger'
+2025-09-24 02:48:02.662 [SpringApplicationShutdownHook] INFO  org.apache.kafka.clients.producer.KafkaProducer - [Producer clientId=producer-1] Closing the Kafka producer with timeoutMillis = 30000 ms.
+2025-09-24 02:48:02.665 [SpringApplicationShutdownHook] INFO  org.apache.kafka.common.metrics.Metrics - Metrics scheduler closed
+2025-09-24 02:48:02.665 [SpringApplicationShutdownHook] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-09-24 02:48:02.665 [SpringApplicationShutdownHook] INFO  org.apache.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2025-09-24 02:48:02.665 [SpringApplicationShutdownHook] INFO  org.apache.kafka.common.metrics.Metrics - Metrics reporters closed
+2025-09-24 02:48:02.667 [SpringApplicationShutdownHook] INFO  org.apache.kafka.common.utils.AppInfoParser - App info kafka.producer for producer-1 unregistered
