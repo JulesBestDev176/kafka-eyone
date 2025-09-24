@@ -4,7 +4,6 @@ import com.bazaarvoice.jolt.Chainr;
 import com.bazaarvoice.jolt.JsonUtils;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
-import net.eyone.kafka_eyone.dtos.PatientResponse;
 import org.springframework.core.io.ClassPathResource;
 
 import java.io.InputStream;
@@ -23,18 +22,15 @@ public class TransformationUtil {
             return objectMapper.convertValue(input, Map.class);
         }
 
-        public static PatientResponse jsonToObjectPatient(Object resultatJolt) {
-            log.info("[ObjectMapperService] [jsonToObjectPatient] Resultat: {}", resultatJolt);
-            PatientResponse response = objectMapper.convertValue(resultatJolt, PatientResponse.class);
-            log.info("[ObjectMapperService] [jsonToObjectPatient] PatientResponse: {}", response);
-            return response;
-        }
+
 
         public static Object parseJson(String message) {
             try {
                 // Décoder le Base64 si nécessaire
                 String json = isBase64(message) ? decodeBase64(message) : message;
-                return objectMapper.readValue(json, Object.class);
+                Object result = objectMapper.readValue(json, Object.class);
+                log.info("[ObjectMapperTransformation] [parseJson] Type de retour: {}", result.getClass().getSimpleName());
+                return result;
             } catch (Exception e) {
                 throw new RuntimeException("Erreur parsing JSON", e);
             }
@@ -56,7 +52,7 @@ public class TransformationUtil {
 
     public static class TransformationJolt {
 
-        public static PatientResponse transformationComplet(Object input) {
+        public static <T> T transformationComplet(Object input, String spec, Class<T> targetClass) {
             try {
 
                 Map<String, Object> inputJson;
@@ -67,17 +63,17 @@ public class TransformationUtil {
                 }
                 log.info("[PatientTransformationService] [transformationComplet] Resultat: {}", inputJson);
 
-                ClassPathResource resource = new ClassPathResource("spec/patient.json");
+                ClassPathResource resource = new ClassPathResource(spec);
                 InputStream fichierSpec = resource.getInputStream();
-                List<Object> spec = JsonUtils.jsonToList(fichierSpec);
-                Chainr chainr = Chainr.fromSpec(spec);
+                List<Object> specList = JsonUtils.jsonToList(fichierSpec);
+                Chainr chainr = Chainr.fromSpec(specList);
                 Object resultatJolt = chainr.transform(inputJson);
                 if (resultatJolt == null) {
                     throw new RuntimeException("La transformation Jolt a retourné null. Vérifiez la spécification Jolt.");
                 }
                 log.info("[PatientTransformationService] [transformationComplet] Resultat Jolt: {}", resultatJolt);
 
-                PatientResponse resultat = ObjectMapperTransformation.jsonToObjectPatient(resultatJolt);
+                T resultat = objectMapper.convertValue(resultatJolt, targetClass);
                 log.info("[PatientTransformationService] [transformationComplet] Resultat: {}", resultat);
                 return resultat;
 

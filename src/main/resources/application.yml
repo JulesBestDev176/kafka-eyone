@@ -1,6 +1,10 @@
 spring:
   application:
     name: kafka-eyone
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/kafka_eyone
+      database: kafka_eyone
   elasticsearch:
     uris: localhost:9200
     username: elastic
@@ -42,12 +46,14 @@ elasticsearch:
       name: patients
 
 server:
-  port: 8081
+  port: 8080
 application:
   kafka:
     patient-topic: isi-patient-topic
-  webhook:
-    url: https://webhook.site/27d01a50-8272-48dc-bbdc-ec1b641a7cf8
-    timeout: 5000
-    retry-attempts: 3
+
+logging:
+  level:
+    net.eyone.kafka_eyone.services.process.impl.ProcessElasticImpl: DEBUG
+    org.springframework.data.mongodb: DEBUG
+    net.eyone.kafka_eyone.services.core.impl.MongoServiceImpl: DEBUG
 

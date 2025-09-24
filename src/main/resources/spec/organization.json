@@ -1,0 +1,43 @@
+[
+  {
+    "operation": "default",
+    "spec": {
+      "nom": "",
+      "type": "",
+      "description": "",
+      "telephone": "",
+      "email": "",
+      "adresse": "",
+      "active": true,
+      "statut": "Actif"
+    }
+  },
+  {
+    "operation": "shift",
+    "spec": {
+      "id": "id",
+      "nom": "name",
+      "type": "type",
+      "description": "description",
+      "telephone": "telephone",
+      "email": "email",
+      "adresse": "address",
+      "active": "active"
+    }
+  },
+  {
+    "operation": "modify-overwrite-beta",
+    "spec": {
+      "name": "=toUpperCase",
+      "type": "=capitalize",
+      "email": "=toLowerCase"
+    }
+  },
+  {
+    "operation": "default",
+    "spec": {
+      "resourceType": "Organization",
+      "alias": ["@(1,name)"]
+    }
+  }
+]

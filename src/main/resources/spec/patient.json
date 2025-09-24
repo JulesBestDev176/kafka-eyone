@@ -2,7 +2,6 @@
   {
     "operation": "default",
     "spec": {
-      "id": null,
       "prenom": "",
       "nom": "",
       "numero": "",
