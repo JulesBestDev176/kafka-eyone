@@ -25,7 +25,7 @@ public class ProcessPatientService {
     public void processSavePatient(PatientElastic patientElastic) {
         log.debug("[ProcessPatientService] [processSavePatient] patientElastic : {}", patientElastic);
 
-        Optional<PatientElastic> savedElastic = Optional.of(patientElasticRepository.save(patientElastic));
+        var savedElastic = Optional.of(patientElasticRepository.save(patientElastic));
         log.debug("[ProcessPatientService] [processSavePatient] savedElastic : {}", savedElastic);
 
         savedElastic.ifPresentOrElse(

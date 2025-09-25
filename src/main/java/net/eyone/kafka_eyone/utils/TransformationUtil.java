@@ -104,6 +104,7 @@ public class TransformationUtil {
                 if (resultatJolt == null) {
                     throw new RuntimeException("La transformation Jolt a retourné null. Vérifiez la spécification Jolt.");
                 }
+
                 log.info("[TransformationUtil] [transformationComplet] Resultat Jolt: {}", resultatJolt);
 
                 T resultat = objectMapper.convertValue(resultatJolt, targetClass);

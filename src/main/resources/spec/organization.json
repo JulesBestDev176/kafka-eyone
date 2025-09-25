@@ -3,7 +3,7 @@
     "operation": "shift",
     "spec": {
       "id": "id",
-      "nom": "name",
+      "nom": ["name", "alias[0]"],
       "type": "type",
       "description": "description",
       "telephone": "telephone",
@@ -15,8 +15,7 @@
   {
     "operation": "default",
     "spec": {
-      "resourceType": "Organization",
-      "alias": ["@(1,name)"]
+      "resourceType": "Organization"
     }
   }
 ]

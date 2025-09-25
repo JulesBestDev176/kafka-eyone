@@ -9,7 +9,7 @@ import net.eyone.kafka_eyone.services.interfaces.OrganizationProducerService;
 import org.springframework.cloud.stream.function.StreamBridge;
 import org.springframework.stereotype.Service;
 
-@Service("organizationProducerService")
+@Service
 @RequiredArgsConstructor
 @Slf4j
 public class OrganizationProducerServiceImpl implements OrganizationProducerService {

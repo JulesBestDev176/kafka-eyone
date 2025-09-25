@@ -27,7 +27,7 @@ public class ProcessOrganizationService {
     public void processSaveOrganization(OrganizationElastic organizationElastic) {
         log.debug("[ProcessOrganizationService] [processSaveOrganization] OrganizationElastic : {}", organizationElastic);
 
-        Optional<OrganizationElastic> savedElastic = Optional.of(organizationElasticRepository.save(organizationElastic));
+        var savedElastic = Optional.of(organizationElasticRepository.save(organizationElastic));
         log.debug("[ProcessOrganizationService] [processSaveOrganization] savedElastic : {}", savedElastic);
 
         savedElastic.ifPresentOrElse(

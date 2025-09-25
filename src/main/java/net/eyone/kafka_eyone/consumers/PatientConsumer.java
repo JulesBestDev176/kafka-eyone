@@ -3,7 +3,6 @@ package net.eyone.kafka_eyone.consumers;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.eyone.kafka_eyone.models.PatientElastic;
-import net.eyone.kafka_eyone.services.ProcessOrganizationService;
 import net.eyone.kafka_eyone.services.ProcessPatientService;
 import net.eyone.kafka_eyone.utils.TransformationUtil;
 import org.springframework.context.annotation.Bean;
@@ -21,7 +20,6 @@ public class PatientConsumer {
     }
 
     private final ProcessPatientService processPatient;
-    private final ProcessOrganizationService processOrganization;
 
     @Bean
     public Consumer<String> consumePatient() {

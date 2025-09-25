@@ -15,12 +15,12 @@ import org.springframework.data.elasticsearch.repository.config.EnableElasticsea
 public class ElasticsearchConfig extends ReactiveElasticsearchConfiguration {
     @Value("${spring.elasticsearch.uris:localhost:9200}")
     private String uri;
-    @Value("${spring.elasticsearch.username:}")
-    private String username;
-    @Value("${spring.elasticsearch.password:}")
-    private String password;
-    @Value("${elasticsearch.index.transactions.name}")
-    private String transactionIndex;
+//    @Value("${spring.elasticsearch.username:}")
+//    private String username;
+//    @Value("${spring.elasticsearch.password:}")
+//    private String password;
+//    @Value("${elasticsearch.index.transactions.name}")
+//    private String transactionIndex;
     @Override
     public ClientConfiguration clientConfiguration() {
         return ClientConfiguration.builder()

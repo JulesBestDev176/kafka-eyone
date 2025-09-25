@@ -4,7 +4,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.eyone.kafka_eyone.models.OrganizationElastic;
 import net.eyone.kafka_eyone.services.ProcessOrganizationService;
-import net.eyone.kafka_eyone.services.ProcessPatientService;
 import net.eyone.kafka_eyone.utils.TransformationUtil;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,6 +14,7 @@ import java.util.function.Consumer;
 @RequiredArgsConstructor
 @Slf4j
 public class OrganizationConsumer {
+
 
     static {
         System.setProperty("spring.cloud.function.scan.packages", "net.eyone.kafka_eyone.consumers");

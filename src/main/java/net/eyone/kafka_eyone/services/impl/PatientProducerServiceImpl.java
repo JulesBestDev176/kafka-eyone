@@ -10,7 +10,7 @@ import net.eyone.kafka_eyone.services.interfaces.PatientProducerService;
 import org.springframework.cloud.stream.function.StreamBridge;
 import org.springframework.stereotype.Service;
 
-@Service("patientProducerService")
+@Service
 @RequiredArgsConstructor
 @Slf4j
 public class PatientProducerServiceImpl implements PatientProducerService {
