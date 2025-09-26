@@ -2,13 +2,13 @@ package net.eyone.kafka_eyone.services;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import net.eyone.kafka_eyone.dtos.PatientMongoDto;
-import net.eyone.kafka_eyone.mappers.PatientMongoMapper;
-import net.eyone.kafka_eyone.models.PatientElastic;
-import net.eyone.kafka_eyone.models.PatientMongo;
-import net.eyone.kafka_eyone.repositories.PatientElasticRepository;
-import net.eyone.kafka_eyone.repositories.PatientMongoRepository;
-import net.eyone.kafka_eyone.utils.TransformationUtil;
+import net.eyone.kafka_eyone.dtos.patient.PatientMongoDto;
+import net.eyone.kafka_eyone.mappers.patient.PatientMongoMapper;
+import net.eyone.kafka_eyone.models.patient.PatientElastic;
+import net.eyone.kafka_eyone.models.patient.PatientMongo;
+import net.eyone.kafka_eyone.repositories.patient.PatientElasticRepository;
+import net.eyone.kafka_eyone.repositories.patient.PatientMongoRepository;
+import net.eyone.kafka_eyone.utils.JoltUtil;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -25,40 +25,47 @@ public class ProcessPatientService {
     public void processSavePatient(PatientElastic patientElastic) {
         log.debug("[ProcessPatientService] [processSavePatient] patientElastic : {}", patientElastic);
 
-        var savedElastic = Optional.of(patientElasticRepository.save(patientElastic));
-        log.debug("[ProcessPatientService] [processSavePatient] savedElastic : {}", savedElastic);
+        try {
+            PatientElastic savedElastic = patientElasticRepository.save(patientElastic);
+            log.debug("[ProcessPatientService] [processSavePatient] savedElastic : {}", savedElastic);
 
-        savedElastic.ifPresentOrElse(
-                patient -> {
-                    log.debug("[ProcessPatientService] [processSavePatient] patient : {}", patient);
-                    try {
-                        var transformedData = TransformationUtil.TransformationJolt.transformationComplet(patient, "spec/patient.json", PatientMongoDto.class);
-                        log.debug("[ProcessPatientService] [processSavePatient] transformedData : {}", transformedData);
+            if (savedElastic != null) {
+                log.debug("[ProcessPatientService] [processSavePatient] patient : {}", savedElastic);
+                try {
+                    PatientMongoDto transformedData = JoltUtil.transformationComplet(savedElastic, "spec/patient.json", PatientMongoDto.class);
+                    log.debug("[ProcessPatientService] [processSavePatient] transformedData : {}", transformedData);
 
-                        PatientMongo savedMongo = mongoPatientMapper.toEntity(transformedData);
-                        log.debug("[ProcessPatientService] [processSavePatient] savedMongo : {}", savedMongo);
+                    PatientMongo savedMongo = mongoPatientMapper.toEntity(transformedData);
+                    log.debug("[ProcessPatientService] [processSavePatient] savedMongo : {}", savedMongo);
 
-                        patientMongoRepository.save(savedMongo);
-                        log.debug("[ProcessPatientService] [processSavePatient] mongoSaved : success");
+                    PatientMongo mongoResult = patientMongoRepository.save(savedMongo);
+                    log.debug("[ProcessPatientService] [processSavePatient] mongoResult : {}", mongoResult);
 
-                        patient.setStatut("success");
-                        log.debug("[ProcessPatientService] [processSavePatient] statut : {}", patient.getStatut());
+                    savedElastic.setStatut("success");
+                    String statut = savedElastic.getStatut();
+                    log.debug("[ProcessPatientService] [processSavePatient] statut : {}", statut);
 
-                    } catch (Exception e) {
-                        log.error("[ProcessPatientService] [processSavePatient] error : {}", e.getMessage());
-                        patient.setStatut("failed");
-                        throw e;
-                    } finally {
-                        patientElasticRepository.save(patient);
-                        log.debug("[ProcessPatientService] [processSavePatient] finalSave : success");
-                    }
-                },
-                () -> {
-                    log.error("[ProcessPatientService] [processSavePatient] elasticSaveError : failed");
-                    throw new RuntimeException("Erreur lors de la sauvegarde dans Elasticsearch");
+                } catch (Exception e) {
+                    log.error("[ProcessPatientService] [processSavePatient] error : {}", e.getMessage());
+                    savedElastic.setStatut("failed");
+                    String failedStatut = savedElastic.getStatut();
+                    log.debug("[ProcessPatientService] [processSavePatient] failedStatut : {}", failedStatut);
+                    throw e;
+                } finally {
+                    PatientElastic finalSave = patientElasticRepository.save(savedElastic);
+                    log.debug("[ProcessPatientService] [processSavePatient] finalSave : {}", finalSave);
                 }
-        );
+            } else {
+                log.error("[ProcessPatientService] [processSavePatient] elasticSaveError : failed");
+                RuntimeException exception = new RuntimeException("Erreur lors de la sauvegarde dans Elasticsearch");
+                log.error("[ProcessPatientService] [processSavePatient] exception : {}", exception.getMessage());
+                throw exception;
+            }
 
-        log.debug("[ProcessPatientService] [processSavePatient] result : success");
+            log.debug("[ProcessPatientService] [processSavePatient] result : success");
+        } catch (Exception e) {
+            log.error("[ProcessPatientService] [processSavePatient] globalError : {}", e.getMessage());
+            throw e;
+        }
     }
 }

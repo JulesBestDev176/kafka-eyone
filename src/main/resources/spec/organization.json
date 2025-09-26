@@ -2,20 +2,35 @@
   {
     "operation": "shift",
     "spec": {
+      "#Organization": "resourceType",
       "id": "id",
-      "nom": ["name", "alias[0]"],
-      "type": "type",
+      "nom": [
+        "name",
+        "alias[0]"
+      ],
       "description": "description",
-      "telephone": "telephone",
-      "email": "email",
-      "adresse": "address",
-      "active": "active"
-    }
-  },
-  {
-    "operation": "default",
-    "spec": {
-      "resourceType": "Organization"
+      "active": "active",
+      "type": {
+        "@": "type[0].coding[0].display",
+        "#prov": "type[0].coding[0].code",
+        "#http://terminology.hl7.org/CodeSystem/organization-type": "type[0].coding[0].system"
+      },
+      "telephone": {
+        "@": "contact[0].telecom[0].value",
+        "#phone": "contact[0].telecom[0].system",
+        "#work": "contact[0].telecom[0].use"
+      },
+      "email": {
+        "@": "contact[0].telecom[1].value",
+        "#email": "contact[0].telecom[1].system",
+        "#work": "contact[0].telecom[1].use"
+      },
+      "adresse": "contact[0].address.text",
+      "id": {
+        "@": "identifier[0].value",
+        "#official": "identifier[0].use",
+        "#http://eyone.net/organization-id": "identifier[0].system"
+      }
     }
   }
 ]

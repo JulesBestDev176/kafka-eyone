@@ -2,17 +2,17 @@ package net.eyone.kafka_eyone.services;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import net.eyone.kafka_eyone.dtos.OrganizationMongoDto;
-import net.eyone.kafka_eyone.mappers.OrganizationMongoMapper;
-import net.eyone.kafka_eyone.models.OrganizationElastic;
-import net.eyone.kafka_eyone.models.OrganizationMongo;
-import net.eyone.kafka_eyone.repositories.OrganizationElasticRepository;
-import net.eyone.kafka_eyone.repositories.OrganizationMongoRepository;
+import net.eyone.kafka_eyone.dtos.organization.OrganizationMongoDto;
+import net.eyone.kafka_eyone.mappers.organization.OrganizationMongoMapper;
+import net.eyone.kafka_eyone.models.organization.OrganizationElastic;
+import net.eyone.kafka_eyone.models.organization.OrganizationMongo;
+import net.eyone.kafka_eyone.repositories.organization.OrganizationElasticRepository;
+import net.eyone.kafka_eyone.repositories.organization.OrganizationMongoRepository;
 
-import net.eyone.kafka_eyone.utils.TransformationUtil;
+import net.eyone.kafka_eyone.utils.JoltUtil;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+
 
 
 @Service
@@ -27,40 +27,40 @@ public class ProcessOrganizationService {
     public void processSaveOrganization(OrganizationElastic organizationElastic) {
         log.debug("[ProcessOrganizationService] [processSaveOrganization] OrganizationElastic : {}", organizationElastic);
 
-        var savedElastic = Optional.of(organizationElasticRepository.save(organizationElastic));
-        log.debug("[ProcessOrganizationService] [processSaveOrganization] savedElastic : {}", savedElastic);
+        try {
+            OrganizationElastic savedElastic = organizationElasticRepository.save(organizationElastic);
+            log.debug("[ProcessOrganizationService] [processSaveOrganization] savedElastic : {}", savedElastic);
 
-        savedElastic.ifPresentOrElse(
-                organization -> {
-                    log.debug("[ProcessOrganizationService] [processSaveOrganization] Organization : {}", organization);
-                    try {
-                        var transformedData = TransformationUtil.TransformationJolt.transformationComplet(organization, "spec/organization.json", OrganizationMongoDto.class);
-                        log.debug("[ProcessOrganizationService] [processSaveOrganization] transformedData : {}", transformedData);
+            log.debug("[ProcessOrganizationService] [processSaveOrganization] Organization : {}", savedElastic);
+            try {
+                OrganizationMongoDto transformedData = JoltUtil.transformationComplet(savedElastic, "spec/organization.json", OrganizationMongoDto.class);
+                log.debug("[ProcessOrganizationService] [processSaveOrganization] transformedData : {}", transformedData);
 
-                        OrganizationMongo savedMongo = mongoOrganizationMapper.toEntity(transformedData);
-                        log.debug("[ProcessOrganizationService] [processSaveOrganization] savedMongo : {}", savedMongo);
+                OrganizationMongo savedMongo = mongoOrganizationMapper.toEntity(transformedData);
+                log.debug("[ProcessOrganizationService] [processSaveOrganization] savedMongo : {}", savedMongo);
 
-                        organizationMongoRepository.save(savedMongo);
-                        log.debug("[ProcessOrganizationService] [processSaveOrganization] mongoSaved : success");
+                OrganizationMongo mongoResult = organizationMongoRepository.save(savedMongo);
+                log.debug("[ProcessOrganizationService] [processSaveOrganization] mongoResult : {}", mongoResult);
 
-                        organization.setStatut("success");
-                        log.debug("[ProcessOrganizationService] [processSaveOrganization] statut : {}", organization.getStatut());
+                savedElastic.setStatut("success");
+                String statut = savedElastic.getStatut();
+                log.debug("[ProcessOrganizationService] [processSaveOrganization] statut : {}", statut);
 
-                    } catch (Exception e) {
-                        log.error("[ProcessOrganizationService] [processSaveOrganization] error : {}", e.getMessage());
-                        organization.setStatut("failed");
-                        throw e;
-                    } finally {
-                        organizationElasticRepository.save(organization);
-                        log.debug("[ProcessOrganizationService] [processSaveOrganization] finalSave : success");
-                    }
-                },
-                () -> {
-                    log.error("[ProcessOrganizationService] [processSaveOrganization] elasticSaveError : failed");
-                    throw new RuntimeException("Erreur lors de la sauvegarde dans Elasticsearch");
-                }
-        );
+            } catch (Exception e) {
+                log.error("[ProcessOrganizationService] [processSaveOrganization] error : {}", e.getMessage());
+                savedElastic.setStatut("failed");
+                String failedStatut = savedElastic.getStatut();
+                log.debug("[ProcessOrganizationService] [processSaveOrganization] failedStatut : {}", failedStatut);
+                throw e;
+            } finally {
+                OrganizationElastic finalSave = organizationElasticRepository.save(savedElastic);
+                log.debug("[ProcessOrganizationService] [processSaveOrganization] finalSave : {}", finalSave);
+            }
 
-        log.debug("[ProcessOrganizationService] [processSaveOrganization] result : success");
+            log.debug("[ProcessOrganizationService] [processSaveOrganization] result : success");
+        } catch (Exception e) {
+            log.error("[ProcessOrganizationService] [processSaveOrganization] globalError : {}", e.getMessage());
+            throw e;
+        }
     }
 }

@@ -11,7 +11,7 @@ import org.springframework.data.elasticsearch.repository.config.EnableElasticsea
  * Elasticsearch configuration class for Transaction API
  */
 @Configuration
-@EnableElasticsearchRepositories(basePackages = "net.eyone.kafka_eyone.repositories.elastic")
+@EnableElasticsearchRepositories(basePackages = "net.eyone.kafka_eyone.repositories")
 public class ElasticsearchConfig extends ReactiveElasticsearchConfiguration {
     @Value("${spring.elasticsearch.uris:localhost:9200}")
     private String uri;
