@@ -28,18 +28,18 @@ public class ProcessOrganizationService {
         log.debug("[ProcessOrganizationService] [processSaveOrganization] OrganizationElastic : {}", organizationElastic);
 
         try {
-            OrganizationElastic savedElastic = organizationElasticRepository.save(organizationElastic);
+            var savedElastic = organizationElasticRepository.save(organizationElastic);
             log.debug("[ProcessOrganizationService] [processSaveOrganization] savedElastic : {}", savedElastic);
 
             log.debug("[ProcessOrganizationService] [processSaveOrganization] Organization : {}", savedElastic);
             try {
-                OrganizationMongoDto transformedData = JoltUtil.transformationComplet(savedElastic, "spec/organization.json", OrganizationMongoDto.class);
+                var transformedData = JoltUtil.transformationComplet(savedElastic, "spec/organization.json", OrganizationMongoDto.class);
                 log.debug("[ProcessOrganizationService] [processSaveOrganization] transformedData : {}", transformedData);
 
-                OrganizationMongo savedMongo = mongoOrganizationMapper.toEntity(transformedData);
+                var savedMongo = mongoOrganizationMapper.toEntity(transformedData);
                 log.debug("[ProcessOrganizationService] [processSaveOrganization] savedMongo : {}", savedMongo);
 
-                OrganizationMongo mongoResult = organizationMongoRepository.save(savedMongo);
+                var mongoResult = organizationMongoRepository.save(savedMongo);
                 log.debug("[ProcessOrganizationService] [processSaveOrganization] mongoResult : {}", mongoResult);
 
                 savedElastic.setStatut("success");
@@ -53,7 +53,7 @@ public class ProcessOrganizationService {
                 log.debug("[ProcessOrganizationService] [processSaveOrganization] failedStatut : {}", failedStatut);
                 throw e;
             } finally {
-                OrganizationElastic finalSave = organizationElasticRepository.save(savedElastic);
+                var finalSave = organizationElasticRepository.save(savedElastic);
                 log.debug("[ProcessOrganizationService] [processSaveOrganization] finalSave : {}", finalSave);
             }
 
